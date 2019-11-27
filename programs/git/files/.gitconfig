@@ -1,0 +1,19 @@
+# This is Git's per-user configuration file.
+[alias]
+    ci = commit
+    s = status
+    st = status -sb
+    br = branch
+    co = checkout
+    ass = add
+    rest = reset
+    vomit = commit
+    vommit = commit
+    fluxo = !bash ~/workspaces/caelum/fluxo/bash_scripts/fluxo
+    fl = fluxo
+    fls = fluxo show
+    flr = fluxo rebase
+    fld = fluxo diff
+    fldr = fluxo doctor
+    fldt = fluxo drafts
+    deploy = !bash gh-pages-deploy

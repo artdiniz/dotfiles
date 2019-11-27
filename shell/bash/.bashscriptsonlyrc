@@ -1,0 +1,10 @@
+###############################################################################
+#                                                                             #
+#                    THIS SHOULD PREFERABLY BE EMPTY                          #
+#                  FOR MORE RELIABLE SCRIPTS EXECUTION                        #
+#                                                                             #
+#           You may want to edit ".shell_global_env_setup" instead            #
+#                                                                             #
+###############################################################################
+
+source .shell_global_env_setup

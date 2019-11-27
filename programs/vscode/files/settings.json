@@ -1,0 +1,63 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "window.zoomLevel": 1,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "editor.fontSize": 15,
+    "git.confirmSync": true,
+    "workbench.editor.enablePreview": false,
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx"
+    },
+    "files.associations": {
+        "*.tag": "html",
+        ".shell_interactive_env_setup": "shellscript",
+        ".shell_all_env_setup": "shellscript",
+        ".shell_login_env_setup": "shellscript",
+        ".shell_terminal_env_setup": "shellscript",
+        ".shell_scripts_only_env_setup": "shellscript",
+        ".shell_global_env_setup": "shellscript",
+        ".bashscriptsonlyrc": "shellscript"
+    },
+    "editor.accessibilitySupport": "off",
+    "editor.minimap.enabled": false,
+    "nasc-touchbar.showCommands": false,
+    "nasc-touchbar.showReferences": true,
+    "gitlens.advanced.messages": {
+        "suppressResultsExplorerNotice": true,
+        "suppressShowKeyBindingsNotice": true
+    },
+    "explorer.confirmDragAndDrop": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "emmet.includeLanguages": {
+        "ejs": "html"
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "breadcrumbs.enabled": true,
+    "eslint.provideLintTask": true,
+    "gitlens.views.repositories.files.layout": "tree",
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "mocha.files.glob": "**/*.test.js",
+    "extensions.autoUpdate": false,
+    "git.enableSmartCommit": true,
+    "prettier.disableLanguages": [
+        "markdown",
+        "*.d.ts"
+    ],
+    "zenMode.centerLayout": false,
+    "zenMode.hideTabs": false,
+    "zenMode.hideLineNumbers": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.editor.showIcons": false,
+    "editor.renderWhitespace": "all",
+    "eslint.alwaysShowStatus": true,
+    "terminal.integrated.confirmOnExit": true,
+    "workbench.colorTheme": "Default Light+",
+    "gitlens.hovers.currentLine.over": "line",
+    "workbench.editor.splitSizing": "split",
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+}
