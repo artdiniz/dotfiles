@@ -3,7 +3,7 @@ function _prompt_and_confirm {
     local _result_var_name="$2"
     local _default_value="${!_result_var_name}"
     local _prompt_string_with_default_value
-
+    
     [ ${#_default_value} -gt 0 ] \
         && _prompt_string_with_default_value="$_prompt_string ("$_default_value")" \
         || _prompt_string_with_default_value="$_prompt_string"
@@ -12,22 +12,28 @@ function _prompt_and_confirm {
 
     [ ${#_answer} -eq 0 ] && _answer="$_default_value"
 
-    printf '\e[1A\e[0K%s \e[4m%s\e[0m \n\n\e[36m%s\e[0m\n' \
+    _clear_n_lines_above 0
+
+    printf '%s %s \n\n%s\n' \
         "$_prompt_string" \
-        "$_answer" \
-        "Confirm [y/N] and press Enter"
+        "$(test ! -z "$_answer" \
+            && _style "$_answer" $_underline \
+            ||  _style ' will be empty ' $_bg_black $_text_white $_bold \
+        )" \
+        "$(
+            _style "Confirm [y/N] and press Enter" $_text_cyan
+        )"
 
     read -p "" -er _has_confirmed
 
-    printf '\e[0A\e[0K'
-    printf '\e[1A\e[0K'
-    printf '\e[1A\e[0K'
-    printf '\e[1A\e[0K'
-
     if [ "$_has_confirmed" = 'y' ]; then
+        _clear_n_lines_above 2
+        printf "\n"
+
         # May be more portable like this: `eval $_result_var_name=\$_answer`, but `eval` scares me.
         read -r $_result_var_name <<< "$_answer"
     else
+        _clear_n_lines_above 3
         _prompt_and_confirm "$_prompt_string" $_result_var_name
     fi
 }
