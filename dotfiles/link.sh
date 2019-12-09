@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 _dotfiles_env_file="$(cd "$(dirname "$BASH_SOURCE")"; pwd)/.dotfiles_env.sh"
 
 # shellcheck source=SCRIPTDIR/.dotfiles_env.sh

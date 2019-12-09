@@ -1,0 +1,1 @@
+git clone git@github.com:isaacs/nave.git

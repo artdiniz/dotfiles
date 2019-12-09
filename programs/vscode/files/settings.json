@@ -10,13 +10,11 @@
     },
     "files.associations": {
         "*.tag": "html",
-        ".shell_interactive_env_setup": "shellscript",
-        ".shell_all_env_setup": "shellscript",
-        ".shell_login_env_setup": "shellscript",
-        ".shell_terminal_env_setup": "shellscript",
-        ".shell_scripts_only_env_setup": "shellscript",
-        ".shell_global_env_setup": "shellscript",
-        ".bashscriptsonlyrc": "shellscript"
+        ".bashscriptsonlyrc": "shellscript",
+        ".dotfilesrc\u001c": "shellscript",
+        ".shell_env_global_setup": "shellscript",
+        ".shell_env_login_setup": "shellscript",
+        ".shell_env_terminal_setup": "shellscript"
     },
     "editor.accessibilitySupport": "off",
     "editor.minimap.enabled": false,
@@ -54,10 +52,10 @@
     "editor.renderWhitespace": "all",
     "eslint.alwaysShowStatus": true,
     "terminal.integrated.confirmOnExit": true,
-    "workbench.colorTheme": "Default Light+",
     "gitlens.hovers.currentLine.over": "line",
     "workbench.editor.splitSizing": "split",
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
+    "workbench.colorTheme": "Default Light+"
 }

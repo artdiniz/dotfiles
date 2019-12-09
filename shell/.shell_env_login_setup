@@ -7,10 +7,10 @@
 ###############################################################################
 #                                                                             #
 #   This file will run once per login:                                        #
-#       Ubunutu -  Logs in once at the time you login to access the machine   #                       #
+#       Ubunutu -  Logs in once at the time you login to access the machine   #
 #       macOS   -  Logs in everytime you open a terminal                      #
 #                                                                             #
 ###############################################################################
 
 
-export PATH=$PATH:~/bin/
+export PATH="$PATH:~/bin/"

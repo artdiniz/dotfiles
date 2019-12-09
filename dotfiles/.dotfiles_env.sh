@@ -3,7 +3,7 @@
 _DOTFILES_DIR="$(
     test -z "$_DOTFILES_DIR" && printf "$HOME/dotfiles" || printf "$_DOTFILES_DIR"
 )"
-_DOTFILES_PRIVATE_ENV_FILE=".private_env"
+_DOTFILES_PRIVATE_ENV_FILE=".private_shell_env"
 _SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 
 # shellcheck source=SCRIPTDIR/lib/view/_prompt_and_confirm.sh
