@@ -32,6 +32,8 @@ fi
 
 if _confirm "Detected Touch ID auth support. Do you want to enable Touch ID when running sudo?" "n"; then
 	_temp_sudo_pam_file="$(mktemp)"
+	
+	_backup_sudo_pam_file="$(mktemp)"
 
 	cat - > "$_temp_sudo_pam_file" <<-NEW_SUDO_PAM
 	$(head -n1 "$_sudo_pamd_file_path")
@@ -39,16 +41,27 @@ if _confirm "Detected Touch ID auth support. Do you want to enable Touch ID when
 	$(tail -n+2 "$_sudo_pamd_file_path")
 	NEW_SUDO_PAM
 
+	cat - > "$_backup_sudo_pam_file" <<<"$(cat "$_sudo_pamd_file_path")"
+
 	printf "Now we need admin privileges to change \'$_sudo_pamd_file_path\' to this:\n\n"
 	_box "$(cat "$_temp_sudo_pam_file")" "– |" "1"
 	
 	printf "\n"
 	if _confirm "Continue?" "n"; then
 		printf "%s\n" "Activating sudo with Touch ID..."
-		cp "$_sudo_pamd_file_path" ~/Desktop
 		sudo -k mv "$_temp_sudo_pam_file" "$_sudo_pamd_file_path"
+		_clear_n_lines_above 1
 		printf "%s\n" "If everything worked you should be prompted to use Touch ID now."
-		sudo -k printf "%s\n" "Success"
+		printf "%s\n" "You may cancel this Touch ID prompt and it fallbacks to password text input."
+		sudo -k printf 'This is a sudo print!\n'
+		
+		if _confirm "Did Touch ID  prompt worked?" "y"; then
+			printf "%s\n" "Success"
+		else
+			printf "%s\n" "Failed. Restoring auth modules for sudo."
+			mv "$_backup_sudo_pam_file" ~/Desktop/sudo
+			sudo -k mv "$_backup_sudo_pam_file" "$_sudo_pamd_file_path"
+		fi
 	fi
 else
 	printf "%s\n" "Skipping setup sudo with Touch ID"
