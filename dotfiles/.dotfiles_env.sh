@@ -6,8 +6,17 @@ _DOTFILES_DIR="$(
 _DOTFILES_PRIVATE_ENV_FILE=".private_shell_env"
 _SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 
+# shellcheck source=SCRIPTDIR/lib/view/_clock_wise_set_values.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/view/_clock_wise_set_values.sh
+
+# shellcheck source=SCRIPTDIR/lib/view/_box.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/view/_box.sh
+
 # shellcheck source=SCRIPTDIR/lib/view/_prompt_and_confirm.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/view/_prompt_and_confirm.sh
+
+# shellcheck source=SCRIPTDIR/lib/view/_confirm.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/view/_confirm.sh
 
 # shellcheck source=SCRIPTDIR/lib/view/_render.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/view/_render.sh
