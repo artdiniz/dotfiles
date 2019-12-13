@@ -1,4 +1,4 @@
-if _is_osx; then
+if _is_macos; then
     echo "$HOME/Library/Application Support/Code/User/settings.json"
     echo "$HOME/Library/Application Support/Code/User/keybindings.json"
 else
