@@ -40,7 +40,7 @@ if _confirm "Detected Touch ID auth support. Do you want to enable Touch ID when
 	NEW_SUDO_PAM
 
 	printf "Now we need admin privileges to change \'$_sudo_pamd_file_path\' to this:\n\n"
-	_box "$(cat "$_temp_sudo_pam_file")" "–|" 1
+	_box "$(cat "$_temp_sudo_pam_file")" "– |" "1"
 	
 	printf "\n"
 	if _confirm "Continue?" "n"; then
