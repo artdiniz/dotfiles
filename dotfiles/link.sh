@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-_dotfiles_env_file="$(cd "$(dirname "$BASH_SOURCE")"; pwd)/.dotfiles_env.sh"
+_SCRIPT_DIR="$(cd "$(dirname "$BASH_SOURCE")"; pwd)"
+_dotfiles_env_file="$_SCRIPT_DIR/.dotfiles_env.sh"
 
 # shellcheck source=SCRIPTDIR/.dotfiles_env.sh
 source "$_dotfiles_env_file"
@@ -10,7 +11,7 @@ set -u
 _program_name="$1"
 
 _links="$(
-    /usr/bin/env bash -c "BASH_ENV=$_dotfiles_env_file $_DOTFILES_DIR/programs/$_program_name/link.sh" "$_DOTFILES_DIR/programs/$_program_name/link.sh"
+    "$_SCRIPT_DIR"/exec.sh "programs/$_program_name/link.sh"
 )"
 
 while read -r _link_path; do
