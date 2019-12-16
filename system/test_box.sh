@@ -17,6 +17,8 @@ _commands=(
 	'_box "$_texto" "|*| -|•|-" "1 2 5 5"'
 	'_box "$_texto" "_* |" "1 2 5 5"'
 	'_box "$_texto" "≈_* -•| •+¯ |O" "1 2 5 5"'
+	'_box "$_texto" "2(_)(_*) -•| 2(•+ ¯) 2(|-)(|•)" "1 2 5 5"'
+	'_box "$(_box "$(_box "$_texto" "•" "1 2")" "•")" "•"'
 )
 
 for _command in "${_commands[@]}"; do

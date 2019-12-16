@@ -1,13 +1,6 @@
-function _repeat_string {
-    local _size="$1"
-    local _char="$2"
-    
-    local _printf_repeat=%"$_size"s
-
-    test -z "$_char" \
-        && printf "$_printf_repeat" \
-        || printf "$_printf_repeat" | sed "s/ /$_char/g"
-}
+. "$_DOTFILES_DIR"/dotfiles/lib/view/_box/_parse_border_description_syntax.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/view/_box/_repeat_string.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/view/_box/_clock_wise_set_values.sh
 
 function _box {
     local _content="$1"
