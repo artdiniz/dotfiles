@@ -7,14 +7,22 @@ function _box {
     local _border_descriptors="$2"
     local _padding_sizes="$3"
 
+    local _padding_top_size=0
+    local _padding_right_size=0
+    local _padding_bottom_size=0
+    local _padding_left_size=0
+
+    _clock_wise_set_values "$_padding_sizes" _padding_top_size _padding_right_size _padding_bottom_size _padding_left_size
+
+
     local _top_border_descriptor="2(_)(-)"
     local _right_border_descriptor="2(|)(|)"
     local _bottom_border_descriptor="2(–)(¯)"
     local _left_border_descriptor="2(|)(|)"
 
-    local _top_border_descriptor_length _right_border_descriptor_length _bottom_border_descriptor_length _left_border_descriptor_length
-
     _clock_wise_set_values "$_border_descriptors" _top_border_descriptor _right_border_descriptor _bottom_border_descriptor _left_border_descriptor
+
+    local _top_border_descriptor_length _right_border_descriptor_length _bottom_border_descriptor_length _left_border_descriptor_length
 
     while IFS= read -r _border_var_name; do
         local _border_descriptor _border_descriptor_length
@@ -23,16 +31,18 @@ function _box {
         read -d '' -r $_border_var_name <<<"$(printf "%b" "$_border_descriptor")"
         read -d '' -r $_border_var_name'_length' <<<"$(printf "%d" "$_border_descriptor_length")"
     done <<<"$(printf "%s\n" _top_border_descriptor _right_border_descriptor _bottom_border_descriptor _left_border_descriptor)"
-    
-    local _padding_top_size=0
-    local _padding_right_size=0
-    local _padding_bottom_size=0
-    local _padding_left_size=0
 
-    _clock_wise_set_values "$_padding_sizes" _padding_top_size _padding_right_size _padding_bottom_size _padding_left_size
+    # Get content dimensions
+    local _content_colum_count=0
+    local _content_lines_count=0
+    while IFS= read -r _content_line; do
+        local _current_line_column_count="${#_content_line}"
+        [ $_content_colum_count -lt $_current_line_column_count ] && _content_colum_count="$_current_line_column_count";
+        _content_lines_count=$(( _content_lines_count + 1 ))
+    done <<<"$_content"
 
     function _render_box_line {
-        local _text="$1"
+        local _line_content="$1"
         local _line_number="$2"
 
         local _box_line_left_border=""
@@ -52,34 +62,22 @@ function _box {
         local _padding_right="$(_repeat_string "$_padding_right_size")"
         local _padding_left="$(_repeat_string "$_padding_left_size")"
 
-        printf "%b%b%b%b%b" "$_box_line_left_border" "$_padding_left" "$_text" "$_padding_right" "$_box_line_right_border"
-    }
+        local _padding_end_size=$(( _content_colum_count - ${#_line_content} ))
+        local _padding_end="$(_repeat_string "$_padding_end_size")"
 
-    # Get content dimensions
-    local _content_colum_count=0
-    local _content_lines_count=0
-    while IFS= read -r _content_line; do
-        local _current_line_column_count="${#_content_line}"
-        [ $_content_colum_count -lt $_current_line_column_count ] && _content_colum_count="$_current_line_column_count";
-        _content_lines_count=$(( _content_lines_count + 1 ))
-    done <<<"$_content"
+        printf "%b%s%b%s%s%b" "$_box_line_left_border" "$_padding_left" "$_line_content" "$_padding_end" "$_padding_right" "$_box_line_right_border"
+    }
 
     local _box_content=""
     local _current_box_line_number=$_padding_top_size
     while IFS=  read -r _content_line; do
-        local _current_line_column_count="${#_content_line}"
-
-        local _padding_end_size=$(( _content_colum_count - _current_line_column_count ))
-        local _padding_end="$(_repeat_string "$_padding_end_size")"
-
-        _box_content+="$(_render_box_line "$_content_line$_padding_end" "$_current_box_line_number")\\n"
+        _box_content+="$(_render_box_line "$_content_line" "$_current_box_line_number")\\n"
         _current_box_line_number=$(( _current_box_line_number + 1 ))
     done <<<"$_content"
 
     local _horizontal_borders_width=$(( _padding_left_size + _content_colum_count + _padding_right_size ))
     local _horizontal_borders_margin_left="$(_repeat_string "$_left_border_descriptor_length")"
     
-
     local _box_top_border=""
     while IFS= read -r _top_border_string ; do
         local _top_border_repeat_number=$(( ($_horizontal_borders_width / ${#_top_border_string}) + 1 ))
