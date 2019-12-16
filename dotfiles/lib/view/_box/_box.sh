@@ -4,7 +4,7 @@
 
 function _box {
     local _content="$1"
-    local _box_border_strings="$2"
+    local _border_descriptors="$2"
     local _padding_sizes="$3"
 
     local _top_box_string="–"
@@ -12,7 +12,7 @@ function _box {
     local _bottom_box_string="–"
     local _left_box_string="|"
 
-    _clock_wise_set_values "$_box_border_strings" _top_box_string _right_box_string _bottom_box_string _left_box_string
+    _clock_wise_set_values "$_border_descriptors" _top_box_string _right_box_string _bottom_box_string _left_box_string
 
     local _padding_top_size=0
     local _padding_right_size=0
@@ -40,8 +40,9 @@ function _box {
     # Get content dimensions
     local _content_colum_count=0
     local _content_lines_count=0
-    while IFS=  read -r _content_line; do
-        ((_content_colum_count<${#_content_line})) && { _content_colum_count="${#_content_line}"; }
+    while IFS= read -r _content_line; do
+        local _current_line_column_count="${#_content_line}"
+        [ $_content_colum_count -lt $_current_line_column_count ] && _content_colum_count="$_current_line_column_count";
         _content_lines_count=$(( _content_lines_count + 1 ))
     done <<<"$_content"
 
@@ -50,33 +51,33 @@ function _box {
     while IFS=  read -r _content_line; do
         local _current_line_column_count="${#_content_line}"
 
-        local _padding_end_size=$((_content_colum_count - _current_line_column_count))
+        local _padding_end_size=$(( _content_colum_count - _current_line_column_count ))
         local _padding_end="$(_repeat_string "$_padding_end_size")"
 
         _box_content+="$(_render_box_line "$_content_line$_padding_end" "$_current_box_line_number")\\n"
-        _current_box_line_number=$((_current_box_line_number + 1))
+        _current_box_line_number=$(( _current_box_line_number + 1 ))
     done <<<"$_content"
 
-    local _box_horizontal_borders_size=$((_padding_left_size + _content_colum_count + _padding_right_size))
+    local _box_horizontal_borders_width=$(( _padding_left_size + _content_colum_count + _padding_right_size ))
     
-    local _box_top_border_repeat_number=$((($_box_horizontal_borders_size/${#_top_box_string})+1))
+    local _box_top_border_repeat_number=$(( ($_box_horizontal_borders_width / ${#_top_box_string}) + 1 ))
     local _box_top_border="$(_repeat_string "$_box_top_border_repeat_number" "$_top_box_string")"
-    local _box_top_border=" ${_box_top_border:0:$_box_horizontal_borders_size}"
+    local _box_top_border=" ${_box_top_border:0:$_box_horizontal_borders_width}"
 
-    local _box_bottom_border_repeat_number=$((($_box_horizontal_borders_size/${#_bottom_box_string})+1))
+    local _box_bottom_border_repeat_number=$(( ($_box_horizontal_borders_width / ${#_bottom_box_string}) + 1 ))
     local _box_bottom_border="$(_repeat_string "$_box_bottom_border_repeat_number" "$_bottom_box_string")"
-    local _box_bottom_border=" ${_box_bottom_border:0:$_box_horizontal_borders_size}"
+    local _box_bottom_border=" ${_box_bottom_border:0:$_box_horizontal_borders_width}"
     
     local _box_padding_top=""
     local _box_padding_bottom=""
 
     local _vertical_padding_filler="$(_repeat_string "$_content_colum_count")"
-    local _vertical_padding_height=$(($_padding_top_size + $_padding_bottom_size))
+    local _vertical_padding_height=$(( $_padding_top_size + $_padding_bottom_size ))
     local i=0; while [ $i -lt "$_vertical_padding_height" ]; do
         if [ $i -lt $_padding_top_size ]; then
             _box_padding_top+="$(_render_box_line "$_vertical_padding_filler" "$i")\\n"
         else
-            _box_padding_bottom+="$(_render_box_line "$_vertical_padding_filler" "$(($_content_lines_count + $i))")\\n"
+            _box_padding_bottom+="$(_render_box_line "$_vertical_padding_filler" "$(( $_content_lines_count + $i ))")\\n"
         fi
         i=$(( i + 1 ))
     done
