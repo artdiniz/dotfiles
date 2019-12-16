@@ -10,6 +10,7 @@ ARQUIVO
 _commands=(
 	'_box "$_texto"'
 	'_box "$_texto" "– |" 1'
+	'_box "$_texto" "2(_)(-) 2(|)(|) 2(–)(¯)" 1'
 	'_box "$_texto" "*" "0 2"'
 	'_box "$_texto" "* |" "1 2 5"'
 	'_box "$_texto" "* | •" "1 2 5 5"'
@@ -20,6 +21,7 @@ _commands=(
 	'_box "$(_box "$(_box "$_texto" "•" "1 2")" "•")" "•"'
 	'_box "$_texto" "2(_)(_*) -•| 2(•+)(¯) 2(|-)(|•)" "1 2 5 5"'
 	'_box "$_texto" "2(_)(_*) 2(-•|)(-) 2(•+)(¯) 2(|-)(|•)" "1 2 5 5"'
+	'_box "$_texto" "°øo0Oº°" "1 2 5 5"'
 )
 
 for _command in "${_commands[@]}"; do

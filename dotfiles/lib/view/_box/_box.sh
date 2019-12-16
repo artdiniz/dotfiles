@@ -7,10 +7,10 @@ function _box {
     local _border_descriptors="$2"
     local _padding_sizes="$3"
 
-    local _top_border_descriptor="–"
-    local _right_border_descriptor="|"
-    local _bottom_border_descriptor="–"
-    local _left_border_descriptor="|"
+    local _top_border_descriptor="2(_)(-)"
+    local _right_border_descriptor="2(|)(|)"
+    local _bottom_border_descriptor="2(–)(¯)"
+    local _left_border_descriptor="2(|)(|)"
 
     local _top_border_descriptor_length _right_border_descriptor_length _bottom_border_descriptor_length _left_border_descriptor_length
 
@@ -76,16 +76,23 @@ function _box {
         _current_box_line_number=$(( _current_box_line_number + 1 ))
     done <<<"$_content"
 
-    local _box_horizontal_borders_width=$(( _padding_left_size + _content_colum_count + _padding_right_size ))
-    local _box_horizontal_borders_margin_left="$(_repeat_string "$_left_border_descriptor_length")"
+    local _horizontal_borders_width=$(( _padding_left_size + _content_colum_count + _padding_right_size ))
+    local _horizontal_borders_margin_left="$(_repeat_string "$_left_border_descriptor_length")"
     
-    local _box_top_border_repeat_number=$(( ($_box_horizontal_borders_width / ${#_top_border_descriptor}) + 1 ))
-    local _box_top_border="$(_repeat_string "$_box_top_border_repeat_number" "$_top_border_descriptor")"
-    local _box_top_border="$_box_horizontal_borders_margin_left${_box_top_border:0:$_box_horizontal_borders_width}"
 
-    local _box_bottom_border_repeat_number=$(( ($_box_horizontal_borders_width / ${#_bottom_border_descriptor}) + 1 ))
-    local _box_bottom_border="$(_repeat_string "$_box_bottom_border_repeat_number" "$_bottom_border_descriptor")"
-    local _box_bottom_border="$_box_horizontal_borders_margin_left${_box_bottom_border:0:$_box_horizontal_borders_width}"
+    local _box_top_border=""
+    while IFS= read -r _top_border_string ; do
+        local _top_border_repeat_number=$(( ($_horizontal_borders_width / ${#_top_border_string}) + 1 ))
+        local _box_top_border_with_tail="$(_repeat_string "$_top_border_repeat_number" "$_top_border_string")"
+        _box_top_border+="$_horizontal_borders_margin_left${_box_top_border_with_tail:0:$_horizontal_borders_width}\n"
+    done <<<"$(printf "%b" "$_top_border_descriptor")"
+
+    local _box_bottom_border=""
+    while IFS= read -r _bottom_border_string ; do
+        local _bottom_border_repeat_number=$(( ($_horizontal_borders_width / ${#_bottom_border_string}) + 1 ))
+        local _box_bottom_border_with_tail="$(_repeat_string "$_bottom_border_repeat_number" "$_bottom_border_string")"
+        _box_bottom_border+="$_horizontal_borders_margin_left${_box_bottom_border_with_tail:0:$_horizontal_borders_width}\n"
+    done <<<"$(printf "%b" "$_bottom_border_descriptor")"
     
     local _box_padding_top=""
     local _box_padding_bottom=""
@@ -101,9 +108,9 @@ function _box {
         i=$(( i + 1 ))
     done
 
-    printf "%b" "$_box_top_border \n"
+    printf "%b" "$_box_top_border"
     printf "%b" "$_box_padding_top"
     printf "%b" "$_box_content"
     printf "%b" "$_box_padding_bottom"
-    printf "%b" "$_box_bottom_border \n"
+    printf "%b" "$_box_bottom_border"
 }
