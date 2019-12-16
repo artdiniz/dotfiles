@@ -1,13 +1,17 @@
 function _parse_border_description_syntax {
 	local _raw_border="$1"
 	local _border_var_name="$2"
+	local _border_length_var_name="$3"
 
-	local _parsed_borders
+	local _parsed_borders _qt_borders
 
 	# if _raw_border is a number (-eq only works for integers)
 	local first_border_char="${_raw_border:0:1}"
-	if [ "$first_border_char" -eq "$first_border_char" ] 2> /dev/null; then
-		local _qt_borders=$first_border_char
+	local second_border_char="${_raw_border:1:1}"
+	local last_border_char="${_raw_border:$(( ${#_raw_border} - 1 )):1}"
+	
+	if [ "$first_border_char" -eq "$first_border_char" ] 2> /dev/null && [ "$second_border_char" = "(" ] && [ "$last_border_char" = ")" ] ; then
+		_qt_borders=$first_border_char
 		local _borders_description=${_raw_border:1}	
 		
 		local _qt_parsed_borders=0
@@ -29,7 +33,7 @@ function _parse_border_description_syntax {
 
 			function _result {
 				_previous_state="$1"
-				read -d -r $_state_var_name <<<"$1"
+				read -d '' -r $_state_var_name <<<"$1"
 			}
 
 			if [ $_previous_state -eq $_STATE_NOT_READING ] || [ $_previous_state -eq $_STATE_END_READING ]; then
@@ -81,15 +85,20 @@ function _parse_border_description_syntax {
 			fi
 
 			if [ $_state_reading_border -eq $_STATE_END_READING ]; then
-				_parsed_borders+="$_current_border \\\n"
+				_parsed_borders+="$_current_border\\\n"
 				_qt_parsed_borders=$(( $_qt_parsed_borders + 1))
 				_current_border=""
 			fi
 
 		done <<< "$_borders_description"
 	else
+		_qt_borders=1
 		_parsed_borders="$_raw_border"
 	fi
 
-	read -d -r $_border_var_name <<<"$_parsed_borders"
+	read -d '' -r $_border_var_name <<<"$_parsed_borders"
+	if [ ! -z "$_border_length_var_name" ]; then
+		read -d '' -r $_border_length_var_name <<<"$_qt_borders"
+
+	fi
 }
