@@ -61,13 +61,13 @@ function _box {
         local _padding_end_size=$(( _content_colum_count - ${#_line_content} ))
         local _padding_end="$(_repeat_string "$_padding_end_size")"
 
-        printf "%b%s%b%s%s%b" "$_box_line_left_border" "$_padding_left" "$_line_content" "$_padding_end" "$_padding_right" "$_box_line_right_border"
+        printf %b%s%b%s%s%b "$_box_line_left_border" "$_padding_left" "$_line_content" "$_padding_end" "$_padding_right" "$_box_line_right_border"
     }
 
     local _box_content=""
     local _current_box_line_number=$_padding_top_size
     while IFS=  read -r _content_line; do
-        _box_content+="$(_render_box_line "$_content_line" "$_current_box_line_number")\\n"
+        _box_content+="$(_render_box_line "$_content_line" "$_current_box_line_number")"\\n
         _current_box_line_number=$(( _current_box_line_number + 1 ))
     done <<<"$_content"
 
@@ -77,14 +77,14 @@ function _box {
     local _box_top_border=""
     while IFS= read -r _top_border_string ; do
         local _box_top_border_string="$(_repeat_string "$_horizontal_borders_width" "$_top_border_string")"
-        _box_top_border+="$_horizontal_borders_margin_left$_box_top_border_string"'\n'
-    done <<<"$(printf '%b' "$_top_border_descriptor")"
+        _box_top_border+="$_horizontal_borders_margin_left$_box_top_border_string"\\n
+    done <<<"$(printf %b "$_top_border_descriptor")"
 
     local _box_bottom_border=""
     while IFS= read -r _bottom_border_string ; do
         local _box_bottom_border_string="$(_repeat_string "$_horizontal_borders_width" "$_bottom_border_string")"
-        _box_bottom_border+="$_horizontal_borders_margin_left""$_box_bottom_border_string"'\n'
-    done <<<"$(printf '%b' "$_bottom_border_descriptor")"
+        _box_bottom_border+="$_horizontal_borders_margin_left""$_box_bottom_border_string"\\n
+    done <<<"$(printf %b "$_bottom_border_descriptor")"
     
     local _box_padding_top=""
     local _box_padding_bottom=""
@@ -93,12 +93,13 @@ function _box {
     local _vertical_padding_height=$(( $_padding_top_size + $_padding_bottom_size ))
     local i=0; while [ $i -lt "$_vertical_padding_height" ]; do
         if [ $i -lt $_padding_top_size ]; then
-            _box_padding_top+="$(_render_box_line "$_vertical_padding_filler" "$i")\\n"
+            _box_padding_top+="$(_render_box_line "$_vertical_padding_filler" "$i")"\\n
         else
-            _box_padding_bottom+="$(_render_box_line "$_vertical_padding_filler" "$(( $_content_lines_count + $i ))")\\n"
+            _box_padding_bottom+="$(_render_box_line "$_vertical_padding_filler" "$(( $_content_lines_count + $i ))")"\\n
         fi
         i=$(( i + 1 ))
     done
+
 
     printf "%b" "$_box_top_border"
     printf "%b" "$_box_padding_top"

@@ -81,13 +81,13 @@ function _parse_border_description_syntax {
 			fi
 
 			if [ $_state_reading_border -eq $_STATE_START_READING ]; then
-				_current_border=""
+				_current_border=''
 			fi
 
 			if [ $_state_reading_border -eq $_STATE_END_READING ]; then
-				_parsed_borders+="$(printf '%s' "$_current_border")"'\n'
+				_parsed_borders+=$_current_border\\n
 				_qt_parsed_borders=$(( $_qt_parsed_borders + 1))
-				_current_border=""
+				_current_border=''
 			fi
 
 		done <<< "$_borders_description"
@@ -96,9 +96,8 @@ function _parse_border_description_syntax {
 		_parsed_borders="$_raw_border"
 	fi
 
-	read -d '' -r $_border_var_name <<<"$(printf '%s' "$_parsed_borders")"
+	read -d '' -r $_border_var_name <<<"$_parsed_borders"
 	if [ ! -z "$_border_length_var_name" ]; then
 		read -d '' -r $_border_length_var_name <<<"$_qt_borders"
-
 	fi
 }
