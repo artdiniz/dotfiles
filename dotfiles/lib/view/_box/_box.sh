@@ -26,7 +26,7 @@ function _box {
 
     while IFS= read -r _border_var_name; do
         _parse_border_description_syntax "${!_border_var_name}" $_border_var_name $_border_var_name'_length'
-    done <<<"$(printf "%s\n" _top_border_descriptor _right_border_descriptor _bottom_border_descriptor _left_border_descriptor)"
+    done <<<"$(printf %s\\n _top_border_descriptor _right_border_descriptor _bottom_border_descriptor _left_border_descriptor)"
 
     # Get content dimensions
     local _content_colum_count=0

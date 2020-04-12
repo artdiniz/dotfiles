@@ -1,6 +1,6 @@
 _texto=""
 
-read -d '' -r _texto <<-ARQUIVO
+read -d '' -r _texto <<-'ARQUIVO'
 	Alô alô W Brasil
 	Jacarezinho
 	Avião
@@ -30,6 +30,7 @@ _commands=(
 	"_box \"\$_texto\" '$_bug_complex_backlash_border' '1 2 5 5'"
 	"_box \"\$_texto\" '$_bug_another_complex_backlash_border' '1 2 5 5'"
 	'_box "$_texto" "°øo0Oº°" "1 2 5 5"'
+	'_box "$_texto" "-\ *" "1 2 5 5"'
 )
 
 for _command in "${_commands[@]}"; do

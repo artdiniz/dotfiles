@@ -14,7 +14,6 @@ function _has_touch_id {
 	return $?
 }
 
-
 function _is_sudo_touch_id_enabled {
 	cat "$_sudo_pamd_file_path" | grep -q "$_touchid_pam_module_name"
 	return $?

@@ -5,4 +5,4 @@
 ###############################################################################
 
 
-. ~/dotfiles/dotfiles/.shell_env_installed_programs_setup.sh
+. ~/dotfiles/dotfiles/.dotfiles_installed_programs_env_setup.sh

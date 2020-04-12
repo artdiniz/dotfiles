@@ -1,5 +1,3 @@
-#!/bin/bash -e
-
 # Check the post by @jafrog to understand this better: http://jafrog.com/2013/11/23/colors-in-terminal.html
 
 

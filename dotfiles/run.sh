@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # TODO Check or creates symlink in ~/dotfiles
 
 # TODO =>
