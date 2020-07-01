@@ -6,6 +6,12 @@ _DOTFILES_DIR="$(
 _DOTFILES_PRIVATE_ENV_FILE=".private_shell_env"
 _SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 
+# shellcheck source=SCRIPTDIR/lib/view/error_handling/_setup_error_handling.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/error_handling/_setup_error_handling.sh
+
+# shellcheck source=SCRIPTDIR/lib/infra/_create_string_var.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/infra/_create_string_var.sh
+
 # shellcheck source=SCRIPTDIR/lib/view/_box.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/view/_box/_box.sh
 

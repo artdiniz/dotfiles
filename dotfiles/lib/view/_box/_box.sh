@@ -3,9 +3,20 @@
 . "$_DOTFILES_DIR"/dotfiles/lib/view/_box/_clock_wise_set_values.sh
 
 function _box {
-    local _content="$1"
-    local _border_descriptors="$2"
-    local _padding_sizes="$3"
+    local _content=""
+    local _border_descriptors=""
+    local _padding_sizes=""
+
+    if [ "$#" -eq 1 ]; then
+        _content="$1"
+    elif [ "$#" -eq 2 ]; then
+        _content="$2"
+        _border_descriptors="$1"
+    elif [ "$#" -eq 3 ]; then
+        _content="$3"
+        _border_descriptors="$1"
+        _padding_sizes="$2"
+    fi
 
     local _padding_top_size=0
     local _padding_right_size=0

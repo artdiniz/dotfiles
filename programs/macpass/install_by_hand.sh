@@ -1,0 +1,1 @@
+open https://macpassapp.org/

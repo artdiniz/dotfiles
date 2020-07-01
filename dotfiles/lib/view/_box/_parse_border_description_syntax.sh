@@ -30,10 +30,11 @@ function _parse_border_description_syntax {
 			local _state_var_name="$2"
 
 			local _state
-
+			echo "#char => $_char"
 			function _result {
 				_previous_state="$1"
-				read -d '' -r $_state_var_name <<<"$1"
+				echo "# => $_state_var_name = $_previous_state"
+				_create_string_var "$_state_var_name" < <(printf '%s' "$_previous_state")
 			}
 
 			if [ $_previous_state -eq $_STATE_NOT_READING ] || [ $_previous_state -eq $_STATE_END_READING ]; then

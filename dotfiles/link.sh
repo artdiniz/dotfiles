@@ -11,7 +11,7 @@ set -u
 _program_name="$1"
 
 _links="$(
-    "$_SCRIPT_DIR"/exec_with_dotfiles_env.sh "programs/$_program_name/link.sh"
+    "$_SCRIPT_DIR"/.dotfiles_exec_with_dotfiles_env.sh "programs/$_program_name/link.sh"
 )"
 
 while read -r _link_path; do

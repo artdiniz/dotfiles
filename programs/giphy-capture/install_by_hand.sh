@@ -1,0 +1,1 @@
+open https://giphy.com/apps/giphycapture

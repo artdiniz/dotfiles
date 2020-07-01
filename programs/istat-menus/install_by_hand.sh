@@ -1,0 +1,1 @@
+open https://bjango.com/mac/istatmenus/

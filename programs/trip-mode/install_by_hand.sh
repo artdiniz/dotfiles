@@ -1,0 +1,1 @@
+open https://www.tripmode.ch/

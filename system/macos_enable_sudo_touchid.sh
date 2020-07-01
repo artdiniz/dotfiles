@@ -1,4 +1,4 @@
-test _is_macos || exit 1
+_is_macos
 
 # Based on https://apple.stackexchange.com/questions/259093/can-touch-id-for-the-mac-touch-bar-authenticate-sudo-users-and-admin-privileges/306324#306324
 
@@ -43,7 +43,8 @@ if _confirm "Detected Touch ID auth support. Do you want to enable Touch ID when
 	cat - > "$_backup_sudo_pam_file" <<<"$(cat "$_sudo_pamd_file_path")"
 
 	printf "Now we need admin privileges to change \'$_sudo_pamd_file_path\' to this:\n\n"
-	_box "$(cat "$_temp_sudo_pam_file")" "– |" "1"
+	
+	_box "– |" "1" "$(cat "$_temp_sudo_pam_file")"
 	
 	printf "\n"
 	if _confirm "Continue?" "n"; then

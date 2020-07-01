@@ -1,0 +1,1 @@
+open https://www.onenote.com/download?omkt=pt-br

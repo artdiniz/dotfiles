@@ -1,0 +1,1 @@
+open https://folivora.ai/bettersnaptool

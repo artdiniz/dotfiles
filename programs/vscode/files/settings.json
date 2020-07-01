@@ -47,7 +47,7 @@
     "zenMode.hideLineNumbers": false,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.ignoreTrimWhitespace": true,
     "workbench.editor.showIcons": false,
     "editor.renderWhitespace": "all",
     "eslint.alwaysShowStatus": true,

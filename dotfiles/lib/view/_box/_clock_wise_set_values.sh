@@ -8,6 +8,16 @@ function _clock_wise_set_values {
 
     local _top_value _right_value _bottom_value _left_value
 
+
+    # local state
+    # local _current_value
+    # while IFS='' read -r _value<<<"$_param_values"; do
+    #     _current_state="$(_set_state_for "$_value")"
+    #     if [ $_current_state -eq $_read_next ]; then 
+
+    #     fi
+    # done
+
     IFS=' ' read -ra _values_array<<<"$_param_values"
 
     if [ ! -z "${_values_array[0]}" ]; then

@@ -1,0 +1,1 @@
+open https://my.minecraft.net/pt-br/store/minecraft/#owned
