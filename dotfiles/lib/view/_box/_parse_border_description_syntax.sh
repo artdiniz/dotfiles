@@ -30,10 +30,10 @@ function _parse_border_description_syntax {
 			local _state_var_name="$2"
 
 			local _state
-			echo "#char => $_char"
+			# echo "#char => $_char"
 			function _result {
 				_previous_state="$1"
-				echo "# => $_state_var_name = $_previous_state"
+				# echo "# => $_state_var_name = $_previous_state"
 				_create_string_var "$_state_var_name" < <(printf '%s' "$_previous_state")
 			}
 
@@ -97,8 +97,8 @@ function _parse_border_description_syntax {
 		_parsed_borders="$_raw_border"
 	fi
 
-	read -d '' -r $_border_var_name <<<"$_parsed_borders"
+	_create_string_var "$_border_var_name" < <(printf '%s' "$_parsed_borders")
 	if [ ! -z "$_border_length_var_name" ]; then
-		read -d '' -r $_border_length_var_name <<<"$_qt_borders"
+		_create_string_var "$_border_length_var_name" < <(printf '%s' "$_qt_borders")
 	fi
 }

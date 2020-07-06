@@ -1,19 +1,21 @@
-_parse_border_description_syntax '3(_\\\\)(_\\\)*)(alo)' _border_list
+_border_a='3(_\\\)(_\\\)*)(alo)'
+_border_b='\'
+_border_c='\ \'
+_border_a='3(_\\\)(_\\\)*)(alo)'
 
-_parse_border_description_syntax '_*_•' _simple_border
+_create_string_var _border_descriptions <<-BORDER_DESCRIPTIONS
+	$_border_a
+	$_border_b
+	$_border_c
+	_*_•
+	2(_*_•
+	2_*_•)
+BORDER_DESCRIPTIONS
 
-_parse_border_description_syntax '2(_*_•' _simple_border
+while IFS= read -r _description; do
+	_result_border=''
+	_command="_parse_border_description_syntax '$_description' _result_border"
+	eval "$_command"
 
-_parse_border_description_syntax '2_*_•)' _simple_border
-
-_parse_border_description_syntax '\' _simple_border
-
-printf %s\\n  "Multiple"
-while IFS= read -r _border; do
-	printf %s\\n "$_border oi"
-done <<<"$(printf %b "$_border_list")"
-
-printf \\n%s\\n "Simple"
-while IFS= read -r _border; do
-	printf %s\\n "$_border"
-done <<<"$(printf "$_simple_border")"
+	printf \\n"$(_style \$ $_text_red) $(_style %s $_bold)"\\n\\n%s\\n\\n\\n "$_command" "$_result_border``"
+done <<<"$(printf '%s' "$_border_descriptions")"
