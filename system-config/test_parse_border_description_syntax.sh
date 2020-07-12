@@ -1,8 +1,6 @@
 _border_a='3(_\\\)(_\\\)*)(alo)'
 _border_b='\'
 _border_c='\ \'
-_border_a='3(_\\\)(_\\\)*)(alo)'
-
 _create_string_var _border_descriptions <<-BORDER_DESCRIPTIONS
 	$_border_a
 	$_border_b
@@ -12,6 +10,9 @@ _create_string_var _border_descriptions <<-BORDER_DESCRIPTIONS
 	2_*_•)
 	\s
 	|\s|
+	[\s|\s]
+	2(– )(_ )
+	2(–\s)(_\s)
 BORDER_DESCRIPTIONS
 
 while IFS= read -r _description; do

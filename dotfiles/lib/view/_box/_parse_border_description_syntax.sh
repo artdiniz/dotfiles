@@ -16,10 +16,9 @@ function _parse_border_description_syntax {
 		local _char="${_special_char_and_alias:1:2}"
 
 		# echo "alias: '$_alias' || char '$_char'"
-		# _create_string_var _raw_border < <(printf %s "$_raw_border" | sed -e "s/\\\\$_alias/$_char/")
-		_create_string_var _raw_border < <(printf %s "${_raw_border/\\$_alias/$_char}")
+		# _create_string_var _raw_border < <(printf %s "$_raw_border" | sed -e "s/\\\\$_alias/$_char/g")
+		_create_string_var _raw_border < <(printf %s "${_raw_border//\\$_alias/$_char}")
 	done <<<"$(printf '%s' "$_special_chars_by_alias")"
-
 
 	# if _raw_border is a number (-eq only works for integers)
 	local first_border_char="${_raw_border:0:1}"
@@ -28,7 +27,7 @@ function _parse_border_description_syntax {
 
 	if [ "$first_border_char" -eq "$first_border_char" ] 2> /dev/null && [ "$second_border_char" = "(" ] && [ "$last_border_char" = ")" ] ; then
 		_qt_borders=$first_border_char
-		local _borders_description=${_raw_border:1}	
+		local _borders_description=${_raw_border:1}
 		
 		local _qt_parsed_borders=0
 
@@ -45,7 +44,7 @@ function _parse_border_description_syntax {
 			local _previous_state=${!_state_var_name}
 
 			local _state
-			# echo "#char => $_char"
+			# echo "#char => '$_char'"
 			function _result {
 				local _new_state=$1
 				# echo "# => $_state_var_name = $_new_state"
@@ -83,7 +82,7 @@ function _parse_border_description_syntax {
 
 		local _current_border=""
 		local _state_reading_border=$_STATE_NOT_READING
-		while [ $_qt_parsed_borders -lt $_qt_borders ] && read -n1 -r _borders_description_char; do
+		while [ $_qt_parsed_borders -lt $_qt_borders ] && IFS= read -n1 -r _borders_description_char; do
 			_set_state "$_borders_description_char" _state_reading_border
 
 			if [ $_state_reading_border -eq $_STATE_READING ]; then
@@ -104,7 +103,7 @@ function _parse_border_description_syntax {
 				_current_border=''
 			fi
 
-		done <<< "$_borders_description"
+		done < <(printf %s "$_borders_description")
 	else
 		_qt_borders=1
 		_parsed_borders="$_raw_border"
