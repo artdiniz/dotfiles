@@ -33,9 +33,9 @@ _create_string_var _commands <<-COMMANDS
 	_box '$_complex_backlash_border_a' '1 2 5 5' "\$_texto"
 	_box '$_complex_backlash_border_b' '1 2 5 5' "\$_texto"
 	_box '$_complex_backlash_border_c' '1 2 5 5' "\$_texto"
-	_box "|\ |" "1 2 5 5" "\$_texto"
-	_box "|\ -\ |" "1 2 5 5" "\$_texto"
-	_box "*\  -\  |\ " "1 2 5 5" "\$_texto"
+	_box "|\s|" "1 2 5 5" "\$_texto"
+	_box "|\s-\ |" "1 2 5 5" "\$_texto"
+	_box "*\s -\s |\s" "1 2 5 5" "\$_texto"
 COMMANDS
 
 while IFS= read -r _command; do
