@@ -12,11 +12,17 @@ _SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 # shellcheck source=SCRIPTDIR/lib/infra/_create_string_var.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/infra/_create_string_var.sh
 
+# shellcheck source=SCRIPTDIR/lib/infra/_c1_grep.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/infra/_c1_grep.sh
+
 # shellcheck source=SCRIPTDIR/lib/view/_box.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/view/_box/_box.sh
 
 # shellcheck source=SCRIPTDIR/lib/view/_prompt_and_confirm.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/view/_prompt_and_confirm.sh
+
+# shellcheck source=SCRIPTDIR/lib/view/_create_menu_selection.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/view/_create_menu_selection.sh
 
 # shellcheck source=SCRIPTDIR/lib/view/_confirm.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/view/_confirm.sh
