@@ -9,15 +9,35 @@
 
 BASH_ENV=".bashscriptsonlyrc"
 
-. ../.shell_env_global_setup
+_shell_specific_file_extension="bash"
+
+if [ -r "../.shell_env_global_setup" ]; then
+    source "../.shell_env_global_setup"
+fi
+
+if [ -r "../.shell_env_global_setup.${_shell_specific_file_extension}" ]; then
+    source "../.shell_env_global_setup.${_shell_specific_file_extension}"
+fi
 
 # login shell environment
-. ../.shell_env_login_setup
+if [ -r "../.shell_env_login_setup" ]; then
+    source "../.shell_env_login_setup"
+fi
+
+if [ -r "../.shell_env_login_setup.${_shell_specific_file_extension}" ]; then
+    source "../.shell_env_login_setup.${_shell_specific_file_extension}"
+fi
 
 # If we are in an interactive shell
 case "$-" in 
     *i*)
         # Run user terminal applicaton setup
-        . ../.shell_env_terminal_setup
+        if [ -r "../.shell_env_terminal_setup" ]; then
+            source "../.shell_env_terminal_setup"
+        fi
+
+        if [ -r "../.shell_env_terminal_setup.${_shell_specific_file_extension}" ]; then
+            source "../.shell_env_terminal_setup.${_shell_specific_file_extension}"
+        fi
     ;;
 esac

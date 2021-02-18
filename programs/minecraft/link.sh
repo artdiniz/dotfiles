@@ -1,0 +1,1 @@
+echo "~/Library/Application Support/minecraft/saves/*"
