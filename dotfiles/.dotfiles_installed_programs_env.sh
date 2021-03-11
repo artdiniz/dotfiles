@@ -1,4 +1,4 @@
-# TODO Check which programs are installed and source their env.sh and .private_env.sh files
+# TODO source based on the same pattern as in `_shell_env_by_lifecycle_and_scope`scripts
 
 #!/usr/bin/env bash
 set -u

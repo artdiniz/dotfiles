@@ -1,0 +1,11 @@
+alias ls='ls -FGH'
+alias la='ls -aFGH'
+alias ll='ls -ahlFGHO'
+
+alias got='git'
+alias please='sudo "$(history -p !!)"'
+alias vai='please'
+alias fodac='exit'
+
+alias fala='say -v Luciana'
+alias say='say -v Daniel'

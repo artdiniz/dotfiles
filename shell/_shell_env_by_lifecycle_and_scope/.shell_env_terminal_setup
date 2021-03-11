@@ -5,22 +5,20 @@
 ###############################################################################
 
 
+
 ###############################################################################
 #   Aliases setup                                                             #
 ###############################################################################
 
-alias ls='ls -FGH'
-alias la='ls -aFGH'
-alias ll='ls -ahlFGHO'
+source "$DOTFILES_HOME/shell/alias"
 
-alias got='git'
-alias please='sudo "$(history -p !!)"'
-alias vai='please'
-alias fodac='exit'
 
-alias fala='say -v Luciana'
-alias say='say -v Daniel'
 
-###################################################
-#    Next                                         #
-###################################################
+###############################################################################
+#                       SHELL PROGRAM SPECIFIC STUFF                          #
+###############################################################################
+
+_shell_specific_file_extension="$(basename "$0")"
+if [ -r ".shell_env_terminal_setup.${_shell_specific_file_extension}" ]; then
+    source ".shell_env_terminal_setup.${_shell_specific_file_extension}"
+fi

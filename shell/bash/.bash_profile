@@ -2,42 +2,26 @@
 #  YOU SHALL NOT TOUCH THIS FILE!                                             #
 #                                                                             #
 #  Instead use one of those "shell_env_*" files                               #
-#      ../.shell_env_global_setup                                                #
-#      ../.shell_env_login_setup                                                 #
-#      ../.shell_env_terminal_setup                                              #
+#      .shell_env_global_setup                                                #
+#      .shell_env_login_setup                                                 #
+#      .shell_env_terminal_setup                                              #
 ###############################################################################
+
+_SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
+_dotfiles_path="$HOME/dotfiles"
+_dotfiles_shell_env_scripts_path="$_dotfiles_path/shell/_shell_env_by_lifecycle_and_scope"
 
 BASH_ENV=".bashscriptsonlyrc"
 
-_shell_specific_file_extension="bash"
-
-if [ -r "../.shell_env_global_setup" ]; then
-    source "../.shell_env_global_setup"
-fi
-
-if [ -r "../.shell_env_global_setup.${_shell_specific_file_extension}" ]; then
-    source "../.shell_env_global_setup.${_shell_specific_file_extension}"
-fi
+source "$_dotfiles_shell_env_scripts_path/.shell_env_global_setup"
 
 # login shell environment
-if [ -r "../.shell_env_login_setup" ]; then
-    source "../.shell_env_login_setup"
-fi
-
-if [ -r "../.shell_env_login_setup.${_shell_specific_file_extension}" ]; then
-    source "../.shell_env_login_setup.${_shell_specific_file_extension}"
-fi
+source "$_dotfiles_shell_env_scripts_path/.shell_env_login_setup"
 
 # If we are in an interactive shell
 case "$-" in 
     *i*)
         # Run user terminal applicaton setup
-        if [ -r "../.shell_env_terminal_setup" ]; then
-            source "../.shell_env_terminal_setup"
-        fi
-
-        if [ -r "../.shell_env_terminal_setup.${_shell_specific_file_extension}" ]; then
-            source "../.shell_env_terminal_setup.${_shell_specific_file_extension}"
-        fi
+        source "$_dotfiles_shell_env_scripts_path/.shell_env_terminal_setup"
     ;;
 esac

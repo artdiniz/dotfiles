@@ -11,17 +11,10 @@
 
 _SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 _dotfiles_shell_path="$HOME/dotfiles/shell"
+_dotfiles_shell_env_scripts_path="$_dotfiles_shell_path/_shell_env_by_lifecycle_and_scope"
 
-source "${_dotfiles_shell_path}/.shell_env_global_setup"
-
-if [ -r "${_dotfiles_shell_path}/.shell_env_global_setup.zsh" ]; then
-    source "${_dotfiles_shell_path}/.shell_env_global_setup.zsh"
-fi
+source "$_dotfiles_shell_env_scripts_path/.shell_env_global_setup"
 
 # We are in an interactive shell
 # Run user terminal applicaton setup
-source "${_dotfiles_shell_path}/.shell_env_terminal_setup"
-
-if [ -r "${_dotfiles_shell_path}/.shell_env_terminal_setup.zsh" ]; then
-    source "${_dotfiles_shell_path}/.shell_env_terminal_setup.zsh"
-fi
+source "$_dotfiles_shell_env_scripts_path/.shell_env_terminal_setup"
