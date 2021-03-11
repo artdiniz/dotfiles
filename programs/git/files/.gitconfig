@@ -17,3 +17,11 @@
     fldr = fluxo doctor
     fldt = fluxo drafts
     deploy = !bash gh-pages-deploy
+[diff]
+    guitool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+    guitool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
