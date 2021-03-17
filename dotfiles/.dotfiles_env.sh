@@ -9,6 +9,9 @@ _SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 # shellcheck source=SCRIPTDIR/lib/view/error_handling/_setup_error_handling.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/error_handling/_setup_error_handling.sh
 
+# shellcheck source=SCRIPTDIR/lib/infra/_string_utils.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/infra/_string_utils.sh
+
 # shellcheck source=SCRIPTDIR/lib/infra/_create_string_var.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/infra/_create_string_var.sh
 
