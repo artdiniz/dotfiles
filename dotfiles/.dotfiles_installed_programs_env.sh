@@ -1,4 +1,4 @@
-# TODO source based on the same pattern as in `_shell_env_by_lifecycle_and_scope`scripts
+# TODO source based on the same pattern as in `_shell_env`scripts
 
 #!/usr/bin/env bash
 set -u

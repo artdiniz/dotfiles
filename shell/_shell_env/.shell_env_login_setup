@@ -27,5 +27,5 @@ export PATH="$PATH:~/bin/"
 
 _shell_specific_file_extension="$(basename "$0")"
 if [ -r ".shell_env_login_setup.${_shell_specific_file_extension}" ]; then
-    source ".shell_env_login_setup.${_shell_specific_file_extension}"
+    . ".shell_env_login_setup.${_shell_specific_file_extension}"
 fi

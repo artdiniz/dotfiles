@@ -9,4 +9,4 @@
 #    Prompt string setup (a.k.a $PS1)                                         #
 ###############################################################################
 
-source "$DOTFILES_HOME/shell/ps1.bash"
+. "$DOTFILES_HOME/shell/ps1.bash"

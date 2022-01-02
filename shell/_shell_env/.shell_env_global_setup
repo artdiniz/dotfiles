@@ -1,16 +1,18 @@
 ###############################################################################
 #                                                                             #
-#             TERMINAL SETTINGS, APPEARENCE AND USAGE SETUP                   #
+#                      SYSTEM LEVEL GLOBAL STUFF                              #
 #                                                                             #
 ###############################################################################
 
+export DOTFILES_HOME="$HOME/dotfiles"
+
 
 
 ###############################################################################
-#   Aliases setup                                                             #
+#                INSTALLED PROGRAMS SPECIFIC ENVIRONMENT                      #
 ###############################################################################
 
-source "$DOTFILES_HOME/shell/alias"
+. "$DOTFILES_HOME/dotfiles/.dotfiles_installed_programs_env.sh"
 
 
 
@@ -19,6 +21,6 @@ source "$DOTFILES_HOME/shell/alias"
 ###############################################################################
 
 _shell_specific_file_extension="$(basename "$0")"
-if [ -r ".shell_env_terminal_setup.${_shell_specific_file_extension}" ]; then
-    source ".shell_env_terminal_setup.${_shell_specific_file_extension}"
+if [ -r ".shell_env_global_setup.${_shell_specific_file_extension}" ]; then
+    . ".shell_env_global_setup.${_shell_specific_file_extension}"
 fi
