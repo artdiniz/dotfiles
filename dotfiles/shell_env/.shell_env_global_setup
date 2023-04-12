@@ -6,21 +6,17 @@
 
 export DOTFILES_HOME="$HOME/dotfiles"
 
-
-
 ###############################################################################
-#                INSTALLED PROGRAMS SPECIFIC ENVIRONMENT                      #
+#  Installed programs specific environment                                    #
 ###############################################################################
 
 . "$DOTFILES_HOME/dotfiles/.dotfiles_installed_programs_env.sh"
 
-
-
 ###############################################################################
-#                       SHELL PROGRAM SPECIFIC STUFF                          #
+#  Shell program specific stuff                                               #
 ###############################################################################
 
-_shell_specific_file_extension="$(basename "$0")"
+_shell_specific_file_extension="$_dotfiles_shell_name"
 if [ -r ".shell_env_global_setup.${_shell_specific_file_extension}" ]; then
     . ".shell_env_global_setup.${_shell_specific_file_extension}"
 fi

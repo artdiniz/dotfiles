@@ -5,6 +5,10 @@
 ###############################################################################
 
 
+###############################################################################
+#  Source all files from $DOTFILES_HOME/terminal-config                       #
+###############################################################################
+
 _shell_specific_file_extension="$_dotfiles_shell_name"
 
 _terminal_config_file_names="$(
@@ -24,3 +28,12 @@ while read -r _file_name; do
         # echo "=== NOT VALID for shell $_shell_specific_file_extension: $_file_name"
     fi
 done <<< "$(printf "%s\n" "$_terminal_config_file_names")"
+
+
+###############################################################################
+#  Shell program specific stuff                                               #
+###############################################################################
+
+if [ -r ".shell_env_terminal_setup.${_shell_specific_file_extension}" ]; then
+    . ".shell_env_terminal_setup.${_shell_specific_file_extension}"
+fi

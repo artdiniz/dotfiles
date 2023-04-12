@@ -3,8 +3,7 @@
 #!/usr/bin/env bash
 set -u
 
-_SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
-_programs_dir="$(cd "$_SCRIPT_DIR/../programs"; pwd)"
+_programs_dir="$(cd "$DOTFILES_HOME/programs"; pwd)"
 
 _private_env_file_name=".private_shell_env"
 _public_env_file_name=".shell_env"

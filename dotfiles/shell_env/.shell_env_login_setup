@@ -22,10 +22,10 @@ export PATH="$PATH:~/bin/"
 
 
 ###############################################################################
-#                       SHELL PROGRAM SPECIFIC STUFF                          #
+#  Shell program specific stuff                                               #
 ###############################################################################
 
-_shell_specific_file_extension="$(basename "$0")"
+_shell_specific_file_extension="$_dotfiles_shell_name"
 if [ -r ".shell_env_login_setup.${_shell_specific_file_extension}" ]; then
     . ".shell_env_login_setup.${_shell_specific_file_extension}"
 fi
