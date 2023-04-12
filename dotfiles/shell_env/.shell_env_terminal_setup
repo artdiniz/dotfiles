@@ -5,20 +5,22 @@
 ###############################################################################
 
 
+_shell_specific_file_extension="$_dotfiles_shell_name"
 
-###############################################################################
-#   Aliases setup                                                             #
-###############################################################################
+_terminal_config_file_names="$(
+    ls -l1 $DOTFILES_HOME/terminal-config
+)"
 
-. "$DOTFILES_HOME/shell/alias"
-
-
-
-###############################################################################
-#                       SHELL PROGRAM SPECIFIC STUFF                          #
-###############################################################################
-
-_shell_specific_file_extension="$(basename "$0")"
-if [ -r ".shell_env_terminal_setup.${_shell_specific_file_extension}" ]; then
-    . ".shell_env_terminal_setup.${_shell_specific_file_extension}"
-fi
+while read -r _file_name; do
+    if printf "$_file_name" | grep -v '\.' > /dev/null; then
+        . "$DOTFILES_HOME/terminal-config/$_file_name"
+    else
+        if [ "${_file_name%$_shell_specific_file_extension}" != "$_file_name" ]; then
+            # echo "=== VALID for shell $_shell_specific_file_extension: $_file_name"
+            . "$DOTFILES_HOME/terminal-config/$_file_name"
+            continue
+        fi
+        # config file is not for this shell
+        # echo "=== NOT VALID for shell $_shell_specific_file_extension: $_file_name"
+    fi
+done <<< "$(printf "%s\n" "$_terminal_config_file_names")"

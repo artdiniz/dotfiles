@@ -19,3 +19,13 @@ function _string_starts_with {
         return 1    # $substring is not in $string
     fi
 }
+
+function _string_ends_with {
+    string="$1"
+    substring="$2"
+    if [ "${string%$substring}" != "$string" ]; then
+        return 0    # $substring is in $string
+    else
+        return 1    # $substring is not in $string
+    fi
+}
