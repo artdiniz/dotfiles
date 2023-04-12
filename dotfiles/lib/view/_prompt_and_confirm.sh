@@ -8,7 +8,9 @@ function _prompt_and_confirm {
         && _prompt_string_with_default_value="$_prompt_string ("$_default_value")" \
         || _prompt_string_with_default_value="$_prompt_string"
 
-    read -p "$_prompt_string_with_default_value " -er _answer
+    printf "$_prompt_string_with_default_value "
+    read -r < /dev/tty
+    _answer="$REPLY"
 
     [ ${#_answer} -eq 0 ] && _answer="$_default_value"
 
@@ -24,7 +26,8 @@ function _prompt_and_confirm {
             _style "Confirm [y/N] and press Enter" $_text_cyan
         )"
 
-    read -p "" -er _has_confirmed
+    read -r < /dev/tty
+    _has_confirmed="$REPLY"
 
     if [ "$_has_confirmed" = 'y' ]; then
         _clear_n_lines_above 2

@@ -6,12 +6,11 @@
 #      .shell_env_terminal_setup                                              #
 ###############################################################################
 
-# BASH_ENV=".bashscriptsonlyrc"
-
-
 _SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
-_dotfiles_shell_path="$HOME/dotfiles/shell"
-_dotfiles_shell_env_scripts_path="$_dotfiles_shell_path/_shell_env"
+_dotfiles_path="$HOME/dotfiles"
+_dotfiles_shell_env_scripts_path="$_dotfiles_path/dotfiles/shell_env"
+
+BASH_ENV="$_dotfiles_path/programs_shell/bash/files/.bashenv"
 
 source "$_dotfiles_shell_env_scripts_path/.shell_env_global_setup"
 

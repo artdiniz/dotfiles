@@ -10,7 +10,9 @@
     },
     "files.associations": {
         "*.tag": "html",
-        ".bashscriptsonlyrc": "shellscript",
+        ".bashenv": "shellscript",
+        ".shell_env": "shellscript",
+        ".private_shell_env": "shellscript",
         ".dotfilesrc\u001c": "shellscript",
         ".shell_env_global_setup": "shellscript",
         ".shell_env_login_setup": "shellscript",

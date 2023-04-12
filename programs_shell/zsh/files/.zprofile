@@ -9,9 +9,7 @@
 
 _SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 _dotfiles_path="$HOME/dotfiles"
-_dotfiles_shell_env_scripts_path="$_dotfiles_path/shell/_shell_env"
-
-BASH_ENV=".bashscriptsonlyrc"
+_dotfiles_shell_env_scripts_path="$_dotfiles_path/dotfiles/shell_env"
 
 source "$_dotfiles_shell_env_scripts_path/.shell_env_global_setup"
 

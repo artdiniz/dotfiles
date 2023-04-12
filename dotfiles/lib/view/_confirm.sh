@@ -1,7 +1,7 @@
 function _confirm {
     local _prompt_string="$1"
     local _default_value="$2"
-    local _prompt_string_with_default_value
+    local _prompt_string_with_default_value="$_prompt_string [y/n]"
 
     case "$_default_value" in 
         y|Y)
@@ -10,12 +10,11 @@ function _confirm {
         n|N)
             _prompt_string_with_default_value="$_prompt_string [y/N]"
         ;;
-        *)
-            _prompt_string_with_default_value="$_prompt_string [y/n]"
-        ;;
     esac
 
-    read -p "$_prompt_string_with_default_value " -er _answer
+    printf "$_prompt_string_with_default_value "
+    read -r < /dev/tty
+    _answer="$REPLY"
 
     [ ${#_answer} -eq 0 ] && _answer="$_default_value"
 
