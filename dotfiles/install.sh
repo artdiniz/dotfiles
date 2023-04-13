@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
-_SCRIPT_DIR="$(cd "$(dirname "$BASH_SOURCE")"; pwd)"
-_dotfiles_env_file="$_SCRIPT_DIR/.dotfiles_env.sh"
-
-# shellcheck source=SCRIPTDIR/.dotfiles_env.sh
-source "$_dotfiles_env_file"
-
-set -u 
+_dotfiles_script_source="$(cd "$(dirname "$BASH_SOURCE")"; pwd)"
+_dotfiles_env_run="$_dotfiles_script_source/.dotfiles_env_run.sh"
+# shellcheck source=SCRIPTDIR/.dotfiles_env_run.sh
+. $_dotfiles_env_run
 
 _selected_program_name=''
 
@@ -18,4 +15,4 @@ _create_menu_selection _selected_program_name < <(
     done < <(ls -l1 "$_programs_dir"/)
 )
 
-# "$_SCRIPT_DIR"/.dotfiles_exec_with_dotfiles_env.sh "$_DOTFILES_DIR/programs"
+# "$_DOTFILES_DIR/programs"

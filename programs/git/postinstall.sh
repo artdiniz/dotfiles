@@ -1,3 +1,5 @@
+_SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
+
 _git_user_name=""
 _git_user_email=""
 
