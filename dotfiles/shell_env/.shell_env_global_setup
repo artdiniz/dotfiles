@@ -7,10 +7,10 @@
 export DOTFILES_HOME="$HOME/dotfiles"
 
 ###############################################################################
-#  Installed programs specific environment                                    #
+#  Dotfiles installed programs specific environment                           #
 ###############################################################################
 
-. "$DOTFILES_HOME/dotfiles/.dotfiles_installed_programs_env.sh"
+. "$DOTFILES_HOME/dotfiles/shell_env/.shell_env_programs_setup"
 
 ###############################################################################
 #  Shell program specific stuff                                               #

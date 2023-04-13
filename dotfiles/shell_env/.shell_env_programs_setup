@@ -1,7 +1,6 @@
-# TODO source based on the same pattern as in `_shell_env`scripts
-
-#!/usr/bin/env bash
-set -u
+###############################################################################
+#  Dotfiles installed programs specific environment                           #
+###############################################################################
 
 _programs_dir="$(cd "$DOTFILES_HOME/programs"; pwd)"
 
