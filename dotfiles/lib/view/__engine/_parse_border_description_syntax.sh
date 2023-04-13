@@ -1,7 +1,7 @@
 function _parse_border_description_syntax {
 	local _raw_border="$1"
 	local _border_var_name="$2"
-	local _border_length_var_name="$3"
+	local _border_length_var_name="${3:-}"
 
 	local _parsed_borders _qt_borders
 

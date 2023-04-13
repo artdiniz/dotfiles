@@ -1,6 +1,6 @@
 function _repeat_string {
     local _repeat_size="$1"
-    local _string_repeat="$2"
+    local _string_repeat="${2:-}"
 
     [ -z "$_string_repeat" ] && local _string_repeat=' ';
     

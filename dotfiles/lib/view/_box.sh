@@ -1,6 +1,6 @@
-. "$_DOTFILES_DIR"/dotfiles/lib/view/_box/_parse_border_description_syntax.sh
-. "$_DOTFILES_DIR"/dotfiles/lib/view/_box/_repeat_string.sh
-. "$_DOTFILES_DIR"/dotfiles/lib/view/_box/_clock_wise_set_values.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/view/__engine/_parse_border_description_syntax.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/view/__engine/_repeat_string.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/view/__engine/_clock_wise_set_values.sh
 
 
 function _box {

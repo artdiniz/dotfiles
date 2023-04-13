@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 function _create_menu_selection {
     local _selected_item_var_name
 	_selected_item_var_name="$1"

@@ -1,4 +1,4 @@
-function _get_path_with_tilde {
+function _parse_to_path_with_tilde {
     local _path="$1"
     local _path_dirname="$(dirname "$_path")"
     local _path_filename="$(basename "$_path")"

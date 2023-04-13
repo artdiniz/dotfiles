@@ -12,14 +12,17 @@ _SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 # shellcheck source=SCRIPTDIR/lib/infra/_string_utils.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/infra/_string_utils.sh
 
+# shellcheck source=SCRIPTDIR/lib/infra/_function_utils.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/infra/_function_utils.sh
+
 # shellcheck source=SCRIPTDIR/lib/infra/_create_string_var.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/infra/_create_string_var.sh
 
-# shellcheck source=SCRIPTDIR/lib/infra/_c1_grep.sh
-. "$_DOTFILES_DIR"/dotfiles/lib/infra/_c1_grep.sh
+# shellcheck source=SCRIPTDIR/lib/infra/_grep.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/infra/_grep.sh
 
 # shellcheck source=SCRIPTDIR/lib/view/_box.sh
-. "$_DOTFILES_DIR"/dotfiles/lib/view/_box/_box.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/view/_box.sh
 
 # shellcheck source=SCRIPTDIR/lib/view/_prompt_and_confirm.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/view/_prompt_and_confirm.sh
@@ -42,8 +45,6 @@ _SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 # shellcheck source=SCRIPTDIR/lib/file_system/_create_and_write_file.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/file_system/_create_and_write_file.sh
 
-# shellcheck source=SCRIPTDIR/lib/file_system/_get_path_with_tilde.sh
-. "$_DOTFILES_DIR"/dotfiles/lib/file_system/_get_path_with_tilde.sh
+# shellcheck source=SCRIPTDIR/lib/file_system/_parse_to_path_with_tilde.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/file_system/_parse_to_path_with_tilde.sh
 
-# shellcheck source=SCRIPTDIR/lib/file_system/_get_scriptdir.sh
-. "$_DOTFILES_DIR"/dotfiles/lib/file_system/_get_scriptdir.sh

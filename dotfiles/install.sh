@@ -14,7 +14,7 @@ _programs_dir="$_SCRIPT_DIR/../programs"
 _create_menu_selection _selected_program_name < <(
     while IFS= read -r _program_name; do
         printf '%s\n' "$_program_name" 
-        xargs -I %% printf '    > %s\n' '%%' < <(ls -l1 "$_programs_dir/$_program_name" | _c1_grep -e ^install)
+        xargs -I %% printf '    > %s\n' '%%' < <(ls -l1 "$_programs_dir/$_program_name" | _grep_filter -E ^install)
     done < <(ls -l1 "$_programs_dir"/)
 )
 

@@ -1,22 +1,45 @@
 #!/usr/bin/env bash
 
-set -eE -o pipefail
+set -ueE -o pipefail
 
-_has_already_run=1
-function _catch_error() {
-    local _command="$1"
-    local _line_number="$2"
-    local _status_code="$3"
+function _trap_exit {
+	_exit_code=$1
+	_lineno=$2
 
-    if [ $_status_code -gt 0 ] && [ $_has_already_run -eq 1 ]; then
-        printf "$(tput setab 1)$(tput setaf 7)$(tput bold) %s $(tput sgr0) status code %s at %s:%s\\n\\n" \
-            "Error" "$_status_code" "$_command" "$_line_number"
-    fi
-
-    _has_already_run=0
-    exit $_status_code
+	if _function_exists '_onexit'; then
+		_onexit $_exit_code $_lineno
+	fi
 }
 
-trap '_catch_error $BASH_SOURCE $LINENO $?' ERR
-trap '_catch_error $BASH_SOURCE $LINENO $?' EXIT
+function _trap_err {
+	_exit_code=$1
+	_lineno=$2
 
+	echo
+	echo "Exception on line $_lineno. Exit code $_exit_code" 
+	echo "ERROR HANDLING"
+	echo "======"
+	if _function_exists '_onerror'; then
+		_onerror $_exit_code $_lineno
+	fi
+
+	exit $_exit_code
+}
+
+function _trap_interruption {
+	_exit_code=$1
+	_lineno=$2
+	
+	echo
+	echo "INTERRUPTED" 
+	echo "======"
+	if _function_exists '_oninterrupt'; then
+		_oninterrupt $_exit_code $_lineno
+	fi
+
+	exit $_exit_code
+}
+
+trap "_trap_exit \$? \$LINENO" EXIT
+trap "_trap_err \$? \$LINENO" ERR
+trap "_trap_interruption \$? \$LINENO" SIGINT SIGHUP

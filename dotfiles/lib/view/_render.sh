@@ -27,8 +27,8 @@ function _render {
     function _render_function {
         local _render_string="$1"
         
-        # _clear_n_lines $(_count_render_lines "$_last_render")
-        # _last_render=_render_string
+        _clear_n_lines $(_count_render_lines "$_last_render")
+        _last_render=_render_string
 
         printf "$_render_string"
     }
