@@ -1,69 +1,18 @@
-// Place your settings in this file to overwrite the default settings
 {
-    "window.zoomLevel": 2,
-    "workbench.editor.enablePreviewFromQuickOpen": false,
-    "editor.fontSize": 15,
     "git.confirmSync": true,
     "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromCodeNavigation": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
     "emmet.syntaxProfiles": {
         "javascript": "jsx"
     },
-    "files.associations": {
-        "*.tag": "html",
-        ".bashenv": "shellscript",
-        ".shell_env": "shellscript",
-        ".private_shell_env": "shellscript",
-        ".dotfilesrc\u001c": "shellscript",
-        ".shell_env_global_setup": "shellscript",
-        ".shell_env_login_setup": "shellscript",
-        ".shell_env_terminal_setup": "shellscript"
-    },
     "editor.accessibilitySupport": "off",
     "editor.minimap.enabled": false,
-    "nasc-touchbar.showCommands": false,
-    "nasc-touchbar.showReferences": true,
-    "gitlens.advanced.messages": {
-        "suppressResultsExplorerNotice": true,
-        "suppressShowKeyBindingsNotice": true
-    },
-    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDragAndDrop": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "emmet.includeLanguages": {
-        "ejs": "html"
-    },
     "typescript.updateImportsOnFileMove.enabled": "always",
     "breadcrumbs.enabled": true,
-    "eslint.provideLintTask": true,
-    "gitlens.views.repositories.files.layout": "tree",
-    "gitlens.views.fileHistory.enabled": true,
-    "gitlens.views.lineHistory.enabled": true,
-    "mocha.files.glob": "**/*.test.js",
     "extensions.autoUpdate": false,
-    "git.enableSmartCommit": true,
-    "prettier.disableLanguages": [
-        "markdown",
-        "*.d.ts"
-    ],
-    "zenMode.centerLayout": false,
-    "zenMode.hideTabs": false,
-    "zenMode.hideLineNumbers": false,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "diffEditor.ignoreTrimWhitespace": true,
     "workbench.editor.showIcons": false,
-    "editor.renderWhitespace": "all",
-    "eslint.alwaysShowStatus": true,
-    "terminal.integrated.confirmOnExit": true,
-    "gitlens.hovers.currentLine.over": "line",
-    "workbench.editor.splitSizing": "split",
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "workbench.colorTheme": "Default Light+",
-    "[javascriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    }
+    "terminal.integrated.confirmOnExit": true
 }

@@ -1,4 +1,3 @@
-// Place your key bindings in this file to overwrite the defaults
 [
     {
         "key": "alt+cmd+c",
@@ -81,10 +80,6 @@
     {
         "key": "cmd+h",
         "command": "workbench.action.replaceInFiles"
-    },
-    {
-        "key": "shift+cmd+h",
-        "command": "-workbench.action.replaceInFiles"
     },
     {
         "key": "shift+cmd+h",
