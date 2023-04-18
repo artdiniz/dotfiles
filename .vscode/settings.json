@@ -2,7 +2,7 @@
     "files.associations": {
         ".bashenv": "shellscript",
         ".shell_env": "shellscript",
-        ".private_shell_env": "shellscript",
+        ".shell_env_private": "shellscript",
         ".dotfilesrc": "shellscript",
         ".shell_env_global_setup": "shellscript",
         ".shell_env_login_setup": "shellscript",

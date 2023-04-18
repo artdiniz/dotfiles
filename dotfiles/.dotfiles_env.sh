@@ -8,7 +8,7 @@ export _DOTFILES_HAS_ENV=1
 _DOTFILES_DIR="$(
     test -z "$_DOTFILES_DIR" && printf "$HOME/dotfiles" || printf "$_DOTFILES_DIR"
 )"
-_DOTFILES_PRIVATE_ENV_FILE=".private_shell_env"
+_DOTFILES_PRIVATE_ENV_FILE=".shell_env_private"
 _SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 # echo "=== BASH ENV RUN BASH_SOURCE[${BASH_SOURCE[@]}] \$0[$0] \$@[$@]"
 
