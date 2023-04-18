@@ -3,5 +3,4 @@
 # Enabling custom user scripts on PATH                                        #
 ###############################################################################
 
-export PATH="$PATH:~/bin/"
-
+export PATH="~/bin/:$PATH"

@@ -6,12 +6,12 @@ _dotfiles_env_run="$_dotfiles_script_source/.dotfiles_env_run.sh"
 
 _program_name="$1"
 
-if [ -d "programs/$_program_name" ]; then
-    _program_path="programs/$_program_name"
+if [ -d "$_DOTFILES_DIR/programs/$_program_name" ]; then
+    _program_path="$_DOTFILES_DIR/programs/$_program_name"
 fi
 
-if [ -d "programs_shell/$_program_name" ]; then
-    _program_path="programs_shell/$_program_name"
+if [ -d "$_DOTFILES_DIR/programs_shell/$_program_name" ]; then
+    _program_path="$_DOTFILES_DIR/programs_shell/$_program_name"
 fi
 
 _links="$(

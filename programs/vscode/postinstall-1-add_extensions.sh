@@ -1,4 +1,6 @@
-_extensions_file_path="$_SCRIPT_DIR/files/extensions.txt"
+_SCRIPT_PATH="$(_get_script_path)"
+
+_extensions_file_path="$_SCRIPT_PATH/files/extensions.txt"
 
 extensions="$(cat "$_extensions_file_path")"
 

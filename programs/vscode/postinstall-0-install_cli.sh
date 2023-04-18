@@ -1,3 +1,7 @@
+if which code; then
+    exit
+fi
+
 _vscode_binary_path=""
 
 if [ _is_macos ]; then

@@ -7,7 +7,6 @@
 #      .shell_env_terminal_setup                                              #
 ###############################################################################
 
-_SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 _dotfiles_path="$HOME/dotfiles"
 _dotfiles_shell_env_scripts_path="$_dotfiles_path/dotfiles/shell_env"
 _dotfiles_shell_name="bash"

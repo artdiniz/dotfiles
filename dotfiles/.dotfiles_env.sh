@@ -22,6 +22,9 @@ _SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 # shellcheck source=SCRIPTDIR/lib/infra/_function_utils.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/infra/_function_utils.sh
 
+# shellcheck source=SCRIPTDIR/lib/infra/_path_utils.sh
+. "$_DOTFILES_DIR"/dotfiles/lib/infra/_path_utils.sh
+
 # shellcheck source=SCRIPTDIR/lib/infra/_create_string_var.sh
 . "$_DOTFILES_DIR"/dotfiles/lib/infra/_create_string_var.sh
 

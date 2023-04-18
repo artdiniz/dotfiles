@@ -4,12 +4,22 @@
 #                                                                             #
 ###############################################################################
 
+###############################################################################
+#  Run once                                                                   #
+###############################################################################
+_NEW_DOTFILES_TERMINAL_ENV="$0|$@|$-"
+if [ ! -z "${DOTFILES_TERMINAL_ENV:-}" ] && [ "$DOTFILES_TERMINAL_ENV" = "$_NEW_DOTFILES_TERMINAL_ENV" ]; then
+    return
+fi
+export DOTFILES_TERMINAL_ENV="$_NEW_DOTFILES_TERMINAL_ENV"
+
 
 ###############################################################################
 #  Source all files from $DOTFILES_HOME/terminal-config                       #
 ###############################################################################
 
 _shell_specific_file_extension="$_dotfiles_shell_name"
+echo "CURRENT SHELL: $_shell_specific_file_extension"
 
 _terminal_config_file_names="$(
     ls -l1 $DOTFILES_HOME/terminal-config
@@ -17,10 +27,11 @@ _terminal_config_file_names="$(
 
 while read -r _file_name; do
     if printf "$_file_name" | grep -v '\.' > /dev/null; then
+        echo "Sourcing $DOTFILES_HOME/terminal-config/$_file_name"
         . "$DOTFILES_HOME/terminal-config/$_file_name"
     else
         if [ "${_file_name%$_shell_specific_file_extension}" != "$_file_name" ]; then
-            # echo "=== VALID for shell $_shell_specific_file_extension: $_file_name"
+            echo "=== Sourcing for shell $_shell_specific_file_extension: $DOTFILES_HOME/terminal-config/$_file_name"
             . "$DOTFILES_HOME/terminal-config/$_file_name"
             continue
         fi

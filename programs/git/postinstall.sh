@@ -1,4 +1,4 @@
-_SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
+_SCRIPT_PATH="$(_get_script_path)"
 
 _git_user_name=""
 _git_user_email=""
@@ -6,7 +6,7 @@ _git_user_email=""
 _prompt_and_confirm "Your name:" _git_user_name
 _prompt_and_confirm "Your email (prefer github's noreply email):" _git_user_email
 
-_private_env_file_path="$_SCRIPT_DIR/$_DOTFILES_PRIVATE_ENV_FILE"
+_private_env_file_path="$_SCRIPT_PATH/$_DOTFILES_PRIVATE_ENV_FILE"
 _create_and_write_file "$_private_env_file_path" <<-GIT_PRIVATE_ENV_FILE
 
 	export GIT_AUTHOR_NAME='$_git_user_name'
