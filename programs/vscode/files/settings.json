@@ -14,5 +14,6 @@
     "breadcrumbs.enabled": true,
     "extensions.autoUpdate": false,
     "workbench.editor.showIcons": false,
-    "terminal.integrated.confirmOnExit": true
+    "terminal.integrated.confirmOnExit": true,
+    "window.zoomLevel": 1
 }

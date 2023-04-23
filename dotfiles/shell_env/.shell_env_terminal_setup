@@ -19,7 +19,6 @@ export DOTFILES_TERMINAL_ENV="$_NEW_DOTFILES_TERMINAL_ENV"
 ###############################################################################
 
 _shell_specific_file_extension="$_dotfiles_shell_name"
-echo "CURRENT SHELL: $_shell_specific_file_extension"
 
 _terminal_config_file_names="$(
     ls -l1 $DOTFILES_HOME/terminal-config
@@ -27,7 +26,7 @@ _terminal_config_file_names="$(
 
 while read -r _file_name; do
     if printf "$_file_name" | grep -v '\.' > /dev/null; then
-        echo "Sourcing $DOTFILES_HOME/terminal-config/$_file_name"
+        echo "=== Sourcing $DOTFILES_HOME/terminal-config/$_file_name"
         . "$DOTFILES_HOME/terminal-config/$_file_name"
     else
         if [ "${_file_name%$_shell_specific_file_extension}" != "$_file_name" ]; then

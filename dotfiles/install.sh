@@ -6,7 +6,7 @@ _dotfiles_env_run="$_dotfiles_script_source/.dotfiles_env_run.sh"
 
 _selected_program_name=''
 
-_programs_dir="$_SCRIPT_DIR/../programs"
+_programs_dir="$_DOTFILES_DIR/programs"
 
 _create_menu_selection _selected_program_name < <(
     while IFS= read -r _program_name; do

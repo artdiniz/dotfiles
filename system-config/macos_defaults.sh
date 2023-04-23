@@ -21,3 +21,5 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool false
 defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -bool false
 
 
+#TODO enable SystemSettings > A11Y > Zoom > Use Keyboard Shortcuts Zoom (Cmd+Option+8)
+

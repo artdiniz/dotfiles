@@ -12,12 +12,12 @@ while IFS= read -r _program_name; do
     _public_env_file="$_programs_dir/$_program_name/$_public_env_file_name"
 
     if [ -r "$_public_env_file" ]; then
-        echo "Sourcing $_public_env_file"
+        # echo "Sourcing $_public_env_file"
         . "$_public_env_file"
     fi
 
     if [ -r "$_private_env_file" ]; then
-        echo "Sourcing  $_private_env_file"
+        # echo "Sourcing  $_private_env_file"
         . "$_private_env_file"
     fi
 done <<< "$(ls -l1 "$_programs_dir")"
