@@ -11,19 +11,20 @@ while read -r; do
 		continue
 	fi
 
-	_generated_script_path="$_SCRIPT_DIR/uninstall.$_pkg_name.sh"
 	if pkgutil --pkg-info $_pkg_name >/dev/null; then
 		:
 	else
 		continue
 	fi
 
+	_generated_script_path="$_SCRIPT_DIR/uninstall.$_pkg_name.sh"
 	rm -f "$_generated_script_path"
 	cat > "$_generated_script_path" <<-GENERATED_SCRIPT
 		#!/usr/bin/env bash
 		set -ueE -o pipefail
 
 	GENERATED_SCRIPT
+	chmod +x "$_generated_script_path"
 
 	_volume="$(pkgutil --pkg-info $_pkg_name | grep 'volume: ' | awk '{print $2}')"
 	_location="$(pkgutil --pkg-info $_pkg_name | grep 'location: ' | awk '{print $2}')"
