@@ -1,0 +1,44 @@
+[
+    {
+        "name": "[0] HD 720p",
+        "width": 1280,
+        "height": 720,
+        "device_pixel_ratio": 2,
+        "device_type": "Desktop"
+    },
+    {
+        "name": "[1] HD+ 900p",
+        "width": 1600,
+        "height": 900,
+        "device_pixel_ratio": 2,
+        "device_type": "Desktop"
+    },
+    {
+        "name": "[2] FHD 1080p",
+        "width": 1920,
+        "height": 1080,
+        "device_pixel_ratio": 2,
+        "device_type": "Desktop"
+    },
+    {
+        "name": "[3] QHD 1440P",
+        "width": 2560,
+        "height": 1440,
+        "device_pixel_ratio": 2,
+        "device_type": "Desktop"
+    },
+    {
+        "name": "[4] 4KUHD 2160p",
+        "width": 3840,
+        "height": 2160,
+        "device_pixel_ratio": 2,
+        "device_type": "Desktop"
+    },
+    {
+        "name": "[5] 5K 2880p",
+        "width": 5120,
+        "height": 2880,
+        "device_pixel_ratio": 2,
+        "device_type": "Desktop"
+    }
+]

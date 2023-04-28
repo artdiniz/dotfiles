@@ -1,0 +1,5 @@
+open "https://en.wikipedia.org/wiki/Graphics_display_resolution"
+open "https://en.wikipedia.org/wiki/Graphics_display_resolution#HD"
+open "https://en.wikipedia.org/wiki/Graphics_display_resolution#FHD"
+open "https://en.wikipedia.org/wiki/Graphics_display_resolution#QHD"
+open "https://en.wikipedia.org/wiki/Graphics_display_resolution#5K"
