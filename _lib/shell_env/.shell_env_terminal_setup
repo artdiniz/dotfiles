@@ -15,23 +15,23 @@ export DOTFILES_TERMINAL_ENV="$_NEW_DOTFILES_TERMINAL_ENV"
 
 
 ###############################################################################
-#  Source all files from $DOTFILES_HOME/terminal-config                       #
+#  Source all files from $DOTFILES_HOME/config_terminal                       #
 ###############################################################################
 
 _shell_specific_file_extension="$_dotfiles_shell_name"
 
 _terminal_config_file_names="$(
-    ls -l1 $DOTFILES_HOME/terminal-config
+    ls -l1 $DOTFILES_HOME/config_terminal
 )"
 
 while read -r _file_name; do
     if printf "$_file_name" | grep -v '\.' > /dev/null; then
-        echo "=== Sourcing $DOTFILES_HOME/terminal-config/$_file_name"
-        . "$DOTFILES_HOME/terminal-config/$_file_name"
+        echo "=== Sourcing $DOTFILES_HOME/config_terminal/$_file_name"
+        . "$DOTFILES_HOME/config_terminal/$_file_name"
     else
         if [ "${_file_name%$_shell_specific_file_extension}" != "$_file_name" ]; then
-            echo "=== Sourcing for shell $_shell_specific_file_extension: $DOTFILES_HOME/terminal-config/$_file_name"
-            . "$DOTFILES_HOME/terminal-config/$_file_name"
+            echo "=== Sourcing for shell $_shell_specific_file_extension: $DOTFILES_HOME/config_terminal/$_file_name"
+            . "$DOTFILES_HOME/config_terminal/$_file_name"
             continue
         fi
         # config file is not for this shell

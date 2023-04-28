@@ -111,12 +111,12 @@ Only cases left for now on are for interactive shells.
 
 ###### # .*sh_profile
 ```sh
-. ~/dotfiles/.all_env_setup
+. ~/_lib/.all_env_setup
 
 # If in an interactive shell
 case "$-" in 
     *i*)
-        . ~/dotfiles/.interactive_env_setup
+        . ~/_lib/.interactive_env_setup
     ;;
 esac
 
@@ -125,10 +125,10 @@ esac
 
 ###### # .*shrc
 ```sh
-. ~/dotfiles/.login_env_setup
+. ~/_lib/.login_env_setup
 
 # We can assume we are in an interactive shell
-. ~/dotfiles/.interactive_env_setup
+. ~/_lib/.interactive_env_setup
 ```
 
 ###### # ~/dotfiles/.login_env_setup

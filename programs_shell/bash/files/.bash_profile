@@ -8,7 +8,7 @@
 ###############################################################################
 
 _dotfiles_path="$HOME/dotfiles"
-_dotfiles_shell_env_scripts_path="$_dotfiles_path/dotfiles/shell_env"
+_dotfiles_shell_env_scripts_path="$_dotfiles_path/_lib/shell_env"
 _dotfiles_shell_name="bash"
 
 BASH_ENV="$_dotfiles_path/programs_shell/bash/files/.bashenv"

@@ -19,7 +19,7 @@ export DOTFILES_GLOBAL_ENV="$_NEW_DOTFILES_GLOBAL_ENV"
 #  Dotfiles installed programs specific environment                           #
 ###############################################################################
 
-. "$DOTFILES_HOME/dotfiles/shell_env/.shell_env_programs_setup"
+. "$DOTFILES_HOME/_lib/shell_env/.shell_env_programs_setup"
 
 ###############################################################################
 #  Shell program specific stuff                                               #

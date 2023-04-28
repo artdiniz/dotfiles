@@ -1,0 +1,1 @@
+open "https://arc.net/"

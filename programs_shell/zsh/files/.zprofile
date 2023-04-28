@@ -8,7 +8,7 @@
 ###############################################################################
 
 _dotfiles_path="$HOME/dotfiles"
-_dotfiles_shell_env_scripts_path="$_dotfiles_path/dotfiles/shell_env"
+_dotfiles_shell_env_scripts_path="$_dotfiles_path/_lib/shell_env"
 _dotfiles_shell_name="zsh"
 
 source "$_dotfiles_shell_env_scripts_path/.shell_env_global_setup"

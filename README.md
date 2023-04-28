@@ -1,9 +1,9 @@
 # artdiniz dotfiles
 
 
-# terminal-config
+# config_terminal
 
-All files in `terminal-config` folder are sourced when opening any Terminal App.
+All files in `config_terminal` folder are sourced when opening any Terminal App.
 
 Files that should be sourced only in a specific shell (bash, zsh, etc) should have the shell name as the file extension:
 
