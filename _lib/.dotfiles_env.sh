@@ -16,14 +16,17 @@ _SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 # shellcheck source=SCRIPTDIR/lib/view/error_handling/_setup_error_handling.sh
 . "$_DOTFILES_DIR"/_lib/lib/error_handling/_setup_error_handling.sh
 
+# shellcheck source=SCRIPTDIR/lib/infra/_path_utils.sh
+. "$_DOTFILES_DIR"/_lib/lib/infra/_path_utils.sh
+
+# shellcheck source=SCRIPTDIR/lib/infra/_json_utils.sh
+. "$_DOTFILES_DIR"/_lib/lib/infra/_json_utils.sh
+
 # shellcheck source=SCRIPTDIR/lib/infra/_string_utils.sh
 . "$_DOTFILES_DIR"/_lib/lib/infra/_string_utils.sh
 
 # shellcheck source=SCRIPTDIR/lib/infra/_function_utils.sh
 . "$_DOTFILES_DIR"/_lib/lib/infra/_function_utils.sh
-
-# shellcheck source=SCRIPTDIR/lib/infra/_path_utils.sh
-. "$_DOTFILES_DIR"/_lib/lib/infra/_path_utils.sh
 
 # shellcheck source=SCRIPTDIR/lib/infra/_create_string_var.sh
 . "$_DOTFILES_DIR"/_lib/lib/infra/_create_string_var.sh
@@ -34,17 +37,20 @@ _SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 # shellcheck source=SCRIPTDIR/lib/view/_box.sh
 . "$_DOTFILES_DIR"/_lib/lib/view/_box.sh
 
+# shellcheck source=SCRIPTDIR/lib/view/_log.sh
+. "$_DOTFILES_DIR"/_lib/lib/view/_log.sh
+
 # shellcheck source=SCRIPTDIR/lib/view/_prompt_and_confirm.sh
 . "$_DOTFILES_DIR"/_lib/lib/view/_prompt_and_confirm.sh
-
-# shellcheck source=SCRIPTDIR/lib/view/_create_menu_selection.sh
-. "$_DOTFILES_DIR"/_lib/lib/view/_create_menu_selection.sh
 
 # shellcheck source=SCRIPTDIR/lib/view/_confirm.sh
 . "$_DOTFILES_DIR"/_lib/lib/view/_confirm.sh
 
 # shellcheck source=SCRIPTDIR/lib/view/_render.sh
 . "$_DOTFILES_DIR"/_lib/lib/view/_render.sh
+
+# shellcheck source=SCRIPTDIR/lib/view/_select.sh
+. "$_DOTFILES_DIR"/_lib/lib/view/_select.sh
 
 # shellcheck source=SCRIPTDIR/lib/view/_style.sh
 . "$_DOTFILES_DIR"/_lib/lib/view/_style.sh

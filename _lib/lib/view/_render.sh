@@ -20,14 +20,15 @@ function _count_render_lines {
 function _render {
     local _raw_render_string=""
 
-    while read -r _stdin; do
+    while read -r; do
+        _stdin="$REPLY"
         _raw_render_string+="$_stdin\\n"
     done
 
     function _render_function {
         local _render_string="$1"
         
-        _clear_n_lines $(_count_render_lines "$_last_render")
+        _clear_n_lines_above $(_count_render_lines "$_last_render")
         _last_render=_render_string
 
         printf "$_render_string"

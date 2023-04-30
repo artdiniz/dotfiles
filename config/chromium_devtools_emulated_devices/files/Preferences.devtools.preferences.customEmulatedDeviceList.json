@@ -1,0 +1,374 @@
+[
+  {
+    "title": "[0] HD 720p",
+    "type": "unknown",
+    "user-agent": "",
+    "capabilities": [],
+    "screen": {
+      "device-pixel-ratio": 2,
+      "vertical": {
+        "width": 1280,
+        "height": 720
+      },
+      "horizontal": {
+        "width": 720,
+        "height": 1280
+      }
+    },
+    "modes": [
+      {
+        "title": "",
+        "orientation": "vertical",
+        "insets": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        }
+      },
+      {
+        "title": "",
+        "orientation": "horizontal",
+        "insets": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        }
+      }
+    ],
+    "show-by-default": true,
+    "dual-screen": false,
+    "show": "Default",
+    "user-agent-metadata": {
+      "brands": [
+        {
+          "brand": "",
+          "version": ""
+        }
+      ],
+      "fullVersionList": [
+        {
+          "brand": "",
+          "version": ""
+        }
+      ],
+      "fullVersion": "",
+      "platform": "",
+      "platformVersion": "",
+      "architecture": "",
+      "model": "",
+      "mobile": false
+    }
+  },
+  {
+    "title": "[1] HD+ 900p",
+    "type": "unknown",
+    "user-agent": "",
+    "capabilities": [],
+    "screen": {
+      "device-pixel-ratio": 2,
+      "vertical": {
+        "width": 1600,
+        "height": 900
+      },
+      "horizontal": {
+        "width": 900,
+        "height": 1600
+      }
+    },
+    "modes": [
+      {
+        "title": "",
+        "orientation": "vertical",
+        "insets": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        }
+      },
+      {
+        "title": "",
+        "orientation": "horizontal",
+        "insets": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        }
+      }
+    ],
+    "show-by-default": true,
+    "dual-screen": false,
+    "show": "Default",
+    "user-agent-metadata": {
+      "brands": [
+        {
+          "brand": "",
+          "version": ""
+        }
+      ],
+      "fullVersionList": [
+        {
+          "brand": "",
+          "version": ""
+        }
+      ],
+      "fullVersion": "",
+      "platform": "",
+      "platformVersion": "",
+      "architecture": "",
+      "model": "",
+      "mobile": false
+    }
+  },
+  {
+    "title": "[2] FHD 1080p",
+    "type": "unknown",
+    "user-agent": "",
+    "capabilities": [],
+    "screen": {
+      "device-pixel-ratio": 2,
+      "vertical": {
+        "width": 1920,
+        "height": 1080
+      },
+      "horizontal": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    "modes": [
+      {
+        "title": "",
+        "orientation": "vertical",
+        "insets": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        }
+      },
+      {
+        "title": "",
+        "orientation": "horizontal",
+        "insets": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        }
+      }
+    ],
+    "show-by-default": true,
+    "dual-screen": false,
+    "show": "Default",
+    "user-agent-metadata": {
+      "brands": [
+        {
+          "brand": "",
+          "version": ""
+        }
+      ],
+      "fullVersionList": [
+        {
+          "brand": "",
+          "version": ""
+        }
+      ],
+      "fullVersion": "",
+      "platform": "",
+      "platformVersion": "",
+      "architecture": "",
+      "model": "",
+      "mobile": false
+    }
+  },
+  {
+    "title": "[3] QHD 1440P",
+    "type": "unknown",
+    "user-agent": "",
+    "capabilities": [],
+    "screen": {
+      "device-pixel-ratio": 2,
+      "vertical": {
+        "width": 2560,
+        "height": 1440
+      },
+      "horizontal": {
+        "width": 1440,
+        "height": 2560
+      }
+    },
+    "modes": [
+      {
+        "title": "",
+        "orientation": "vertical",
+        "insets": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        }
+      },
+      {
+        "title": "",
+        "orientation": "horizontal",
+        "insets": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        }
+      }
+    ],
+    "show-by-default": true,
+    "dual-screen": false,
+    "show": "Default",
+    "user-agent-metadata": {
+      "brands": [
+        {
+          "brand": "",
+          "version": ""
+        }
+      ],
+      "fullVersionList": [
+        {
+          "brand": "",
+          "version": ""
+        }
+      ],
+      "fullVersion": "",
+      "platform": "",
+      "platformVersion": "",
+      "architecture": "",
+      "model": "",
+      "mobile": false
+    }
+  },
+  {
+    "title": "[4] 4KUHD 2160p",
+    "type": "unknown",
+    "user-agent": "",
+    "capabilities": [],
+    "screen": {
+      "device-pixel-ratio": 2,
+      "vertical": {
+        "width": 3840,
+        "height": 2160
+      },
+      "horizontal": {
+        "width": 2160,
+        "height": 3840
+      }
+    },
+    "modes": [
+      {
+        "title": "",
+        "orientation": "vertical",
+        "insets": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        }
+      },
+      {
+        "title": "",
+        "orientation": "horizontal",
+        "insets": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        }
+      }
+    ],
+    "show-by-default": true,
+    "dual-screen": false,
+    "show": "Default",
+    "user-agent-metadata": {
+      "brands": [
+        {
+          "brand": "",
+          "version": ""
+        }
+      ],
+      "fullVersionList": [
+        {
+          "brand": "",
+          "version": ""
+        }
+      ],
+      "fullVersion": "",
+      "platform": "",
+      "platformVersion": "",
+      "architecture": "",
+      "model": "",
+      "mobile": false
+    }
+  },
+  {
+    "title": "[5] 5K 2880p",
+    "type": "unknown",
+    "user-agent": "",
+    "capabilities": [],
+    "screen": {
+      "device-pixel-ratio": 2,
+      "vertical": {
+        "width": 5120,
+        "height": 2880
+      },
+      "horizontal": {
+        "width": 2880,
+        "height": 5120
+      }
+    },
+    "modes": [
+      {
+        "title": "",
+        "orientation": "vertical",
+        "insets": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        }
+      },
+      {
+        "title": "",
+        "orientation": "horizontal",
+        "insets": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        }
+      }
+    ],
+    "show-by-default": true,
+    "dual-screen": false,
+    "show": "Default",
+    "user-agent-metadata": {
+      "brands": [
+        {
+          "brand": "",
+          "version": ""
+        }
+      ],
+      "fullVersionList": [
+        {
+          "brand": "",
+          "version": ""
+        }
+      ],
+      "fullVersion": "",
+      "platform": "",
+      "platformVersion": "",
+      "architecture": "",
+      "model": "",
+      "mobile": false
+    }
+  }
+]
