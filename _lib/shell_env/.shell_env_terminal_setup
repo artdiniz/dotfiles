@@ -1,3 +1,6 @@
+#TODO read from programs*/$_program_name/*.terminal_env|*.terminal_env_private
+#TODO read from programs*/@common/*.terminal_env|*.terminal_env_private
+
 ###############################################################################
 #                                                                             #
 #             TERMINAL SETTINGS, APPEARENCE AND USAGE SETUP                   #

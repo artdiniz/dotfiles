@@ -25,13 +25,6 @@ They can just open web pages or show instructions on how you can backup stuff;
 This files are sourced any time a new shell is created. Any shell env settings and modifications a progra needs should lay here.
 A common example is a program that need to add itself to the PATH variable.
 All `.shell_env_private` files are ignored on versioning and are usually created by a `postinstall*.sh` script (e.g. git to set author name and email).
-
-# config_terminal
-
-All files in `config_terminal` folder are sourced when opening any Terminal App.
-
-Files that should be sourced only in a specific shell (bash, zsh, etc) should have the shell name as the file extension:
-
-`ps1.bash` is only sourced on bash shell 
-`ps1.zsh` is only sourced on zsh shell
-`ps1` is sourced on all shells
+## `.terminal_env` and `.terminal_env_private` files
+Quite the same as `.shell_env` and `.shell_env_private` the only difference being that it's sourced whenever a terminal program is in use (when the shell is interactive).
+Those are perfect to setup command aliases and change ps1|prompt and other things that should be only important for your usage of the terminal.
