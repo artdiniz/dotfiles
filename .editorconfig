@@ -1,0 +1,7 @@
+root = true
+charset = utf-8
+
+[*.{bashenv,shell_env,shell_env_private,terminal_env,terminal_env_private,dotfilesrc,shell_env_global_setup,shell_env_login_setup,shell_env_programs_setup,terminal_env_programs_setup}]
+indent_style = tab
+indent_size = 2
+insert_final_newline = true

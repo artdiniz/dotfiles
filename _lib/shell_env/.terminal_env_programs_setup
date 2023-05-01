@@ -1,11 +1,27 @@
 ###############################################################################
-#  Source all .shell_env and .shell_env_private files                   #
+#                                                                             #
+#             TERMINAL SETTINGS, APPEARENCE AND USAGE SETUP                   #
+#                                                                             #
+###############################################################################
+
+###############################################################################
+#  Run once                                                                   #
+###############################################################################
+_NEW_DOTFILES_TERMINAL_ENV="$0|$@|$-"
+if [ ! -z "${DOTFILES_TERMINAL_ENV:-}" ] && [ "$DOTFILES_TERMINAL_ENV" = "$_NEW_DOTFILES_TERMINAL_ENV" ]; then
+		return
+fi
+export DOTFILES_TERMINAL_ENV="$_NEW_DOTFILES_TERMINAL_ENV"
+
+
+###############################################################################
+#  Source all .terminal_env and .terminal_env_private files                   #
 ###############################################################################
 
 _shell_specific_file_extension="$_dotfiles_shell_name"
 
-_common_env_files_grep_regex='\(\.shell_env\|\.shell_env_private\)$'
-_all_env_files_grep_regex='\(\.shell_env\.\?.*\|\.shell_env_private\.\?.*\)$'
+_common_env_files_grep_regex='\(\.terminal_env\|\.terminal_env_private\)$'
+_all_env_files_grep_regex='\(\.terminal_env\.\?.*\|\.terminal_env_private\.\?.*\)$'
 
 _env_files_paths="$(
 	while read -r; do
@@ -51,9 +67,9 @@ while read -r; do
 			# config file is not for this shell
 			# echo "=== NOT Sourcing for shell $_shell_specific_file_extension: $_file_path"
 	fi
-done <<-ENV_FILES
+done <<-TERMINAL_CONFIG_FILES
 	$_env_files_paths
-ENV_FILES
+TERMINAL_CONFIG_FILES
 
 
 ###############################################################################

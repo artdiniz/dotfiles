@@ -22,11 +22,11 @@ while read -r _link_path; do
     _link_dirname="$(dirname "$_link_path")"
     _link_name="$(basename "$_link_path")"
 
-    _file_path="$_DOTFILES_DIR/$_program_path/files/$_link_name"
+    _file_path="$_program_path/files/$_link_name"
 
     if [ -r "$_link_path" ] || [ -L "$_link_path" ]; then
         if _confirm "File $(_style "$_link_name" $_underline) already exists. Back it up and overwrite it?" "n"; then
-            _backup_dir="$_DOTFILES_DIR/$_program_path/backup"
+            _backup_dir="$_program_path/backup"
             _backup_file_path="$_backup_dir/$_link_name"
             
             mkdir -p "$_backup_dir"

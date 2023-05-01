@@ -1,3 +1,6 @@
+
+#TODO make this the default behavior when backing up via copy.sh and link.sh
+
 _SCRIPT_PATH="$(_get_script_path)"
 
 _json_string="$(cat '/Users/art/Library/Application Support/Arc/User Data/Profile 1/Preferences')"

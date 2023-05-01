@@ -1,2 +1,3 @@
 .DS_Store
-.shell_env_private
+*.shell_env_private
+*.terminal_env_private

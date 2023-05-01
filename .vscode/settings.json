@@ -8,7 +8,7 @@
         "*.dotfilesrc": "shellscript",
         "*.shell_env_global_setup": "shellscript",
         "*.shell_env_login_setup": "shellscript",
-        "*.shell_env_terminal_setup": "shellscript",
+        "*.terminal_env_programs_setup": "shellscript",
         "*.shell_env_programs_setup": "shellscript",
         "*.js.sh": "javascript"
     }

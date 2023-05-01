@@ -4,7 +4,7 @@
 #  Instead use one of those "shell_env_*" files                               #
 #      .shell_env_global_setup                                                #
 #      .shell_env_login_setup                                                 #
-#      .shell_env_terminal_setup                                              #
+#      .terminal_env_programs_setup                                              #
 ###############################################################################
 
 _dotfiles_path="$HOME/dotfiles"
@@ -20,6 +20,6 @@ source "$_dotfiles_shell_env_scripts_path/.shell_env_login_setup"
 case "$-" in 
     *i*)
         # Run user terminal applicaton setup
-        source "$_dotfiles_shell_env_scripts_path/.shell_env_terminal_setup"
+        source "$_dotfiles_shell_env_scripts_path/.terminal_env_programs_setup"
     ;;
 esac
