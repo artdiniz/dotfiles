@@ -55,11 +55,10 @@ done <<-ENV_FILES
 	$_env_files_paths
 ENV_FILES
 
-
 ###############################################################################
 #  Shell program specific stuff                                               #
 ###############################################################################
 
-if [ -r ".terminal_env_programs_setup.${_shell_specific_file_extension}" ]; then
-		. ".terminal_env_programs_setup.${_shell_specific_file_extension}"
+if [ -r ".shell_env_programs_setup.${_shell_specific_file_extension}" ]; then
+		. ".shell_env_programs_setup.${_shell_specific_file_extension}"
 fi

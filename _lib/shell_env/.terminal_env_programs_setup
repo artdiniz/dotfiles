@@ -5,16 +5,6 @@
 ###############################################################################
 
 ###############################################################################
-#  Run once                                                                   #
-###############################################################################
-_NEW_DOTFILES_TERMINAL_ENV="$0|$@|$-"
-if [ ! -z "${DOTFILES_TERMINAL_ENV:-}" ] && [ "$DOTFILES_TERMINAL_ENV" = "$_NEW_DOTFILES_TERMINAL_ENV" ]; then
-		return
-fi
-export DOTFILES_TERMINAL_ENV="$_NEW_DOTFILES_TERMINAL_ENV"
-
-
-###############################################################################
 #  Source all .terminal_env and .terminal_env_private files                   #
 ###############################################################################
 
@@ -40,15 +30,15 @@ _env_files_paths="$(
 				echo "$_program_path/$_env_file_name"
 
 			done <<-TERMINAL_ENV_FILES
-				$(ls -la1 "$_program_path" | grep $_all_env_files_grep_regex)
+				$(\ls -la1 "$_program_path" | grep $_all_env_files_grep_regex)
 			TERMINAL_ENV_FILES
 
 		done <<-SINGLE_PROGRAM_FOLDERS
-			$(ls -l1 "$DOTFILES_HOME/$_programs_folder_name")
+			$(\ls -l1 "$DOTFILES_HOME/$_programs_folder_name")
 		SINGLE_PROGRAM_FOLDERS
 
 	done <<-PROGRAMS_FOLDERS
-		$(ls -l1 $DOTFILES_HOME | grep '^programs')
+		$(\ls -l1 $DOTFILES_HOME | grep '^programs')
 	PROGRAMS_FOLDERS
 )"
 

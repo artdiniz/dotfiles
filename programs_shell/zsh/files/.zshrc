@@ -10,8 +10,4 @@ _dotfiles_path="$HOME/dotfiles"
 _dotfiles_shell_env_scripts_path="$_dotfiles_path/_lib/shell_env"
 _dotfiles_shell_name="zsh"
 
-source "$_dotfiles_shell_env_scripts_path/.shell_env_global_setup"
-
-# We are in an interactive shell
-# Run user terminal applicaton setup
 source "$_dotfiles_shell_env_scripts_path/.terminal_env_programs_setup"

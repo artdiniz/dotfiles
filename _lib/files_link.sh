@@ -15,7 +15,7 @@ if [ -d "$_DOTFILES_DIR/programs_shell/$_program_name" ]; then
 fi
 
 _links="$(
-    "$_program_path/link.sh"
+    "$_program_path/files_link.sh"
 )"
 
 while read -r _link_path; do

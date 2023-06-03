@@ -7,7 +7,7 @@ _dotfiles_env_run="$_dotfiles_script_source/.dotfiles_env_run.sh"
 _program_name="$1"
 
 _links="$(
-    "programs/$_program_name/copy.sh"
+    "programs/$_program_name/files_copy.sh"
 )"
 
 while read -r _copy_path; do

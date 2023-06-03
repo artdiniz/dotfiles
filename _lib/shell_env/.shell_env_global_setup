@@ -7,15 +7,6 @@
 export DOTFILES_HOME="$HOME/dotfiles"
 
 ###############################################################################
-#  Run once                                                                   #
-###############################################################################
-_NEW_DOTFILES_GLOBAL_ENV="$0|$@|$-"
-if [ ! -z "${DOTFILES_GLOBAL_ENV:-}" ] && [ "$DOTFILES_GLOBAL_ENV" = "$_NEW_DOTFILES_GLOBAL_ENV" ]; then
-    return
-fi
-export DOTFILES_GLOBAL_ENV="$_NEW_DOTFILES_GLOBAL_ENV"
-
-###############################################################################
 #  Dotfiles installed programs specific environment                           #
 ###############################################################################
 
