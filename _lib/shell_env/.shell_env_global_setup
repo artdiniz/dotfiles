@@ -7,10 +7,12 @@
 export DOTFILES_HOME="$HOME/dotfiles"
 
 ###############################################################################
-#  Dotfiles installed programs specific environment                           #
+#  Run once                                                                   #
 ###############################################################################
-
-. "$DOTFILES_HOME/_lib/shell_env/.shell_env_programs_setup"
+if [ ! -z "${DOTFILES_GLOBAL_ENV:-}" ]; then
+    return
+fi
+export DOTFILES_GLOBAL_ENV="$(uuidgen)"
 
 ###############################################################################
 #  Shell program specific stuff                                               #

@@ -14,11 +14,15 @@
 ###############################################################################
 #  Run once                                                                   #
 ###############################################################################
-_NEW_DOTFILES_LOGIN_ENV="$0|$@|$-"
-if [ ! -z "${DOTFILES_LOGIN_ENV:-}" ] && [ "$DOTFILES_LOGIN_ENV" = "$_NEW_DOTFILES_LOGIN_ENV" ]; then
+if [ ! -z "${DOTFILES_LOGIN_ENV:-}" ]; then
     return
 fi
-export DOTFILES_LOGIN_ENV="$_NEW_DOTFILES_LOGIN_ENV"
+export DOTFILES_LOGIN_ENV="$(uuidgen)"
+
+###############################################################################
+#  Dotfiles installed programs specific environment                           #
+###############################################################################
+. "$DOTFILES_HOME/_lib/shell_env/.shell_env_programs_setup"
 
 ###############################################################################
 #  Shell program specific stuff                                               #

@@ -8,6 +8,17 @@
 #  Source all .terminal_env and .terminal_env_private files                   #
 ###############################################################################
 
+
+###############################################################################
+#  Run once                                                                   #
+###############################################################################
+if [ ! -z "${DOTFILES_PROGRAMS_TERMINAL_ENV:-}" ]; then
+    return
+fi
+export DOTFILES_PROGRAMS_TERMINAL_ENV="$(uuidgen)"
+###############################################################################
+
+
 _shell_specific_file_extension="$_dotfiles_shell_name"
 
 _common_env_files_grep_regex='\(\.terminal_env\|\.terminal_env_private\)$'
