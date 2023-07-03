@@ -5,6 +5,8 @@
         "*.shell_env_private": "shellscript",
         "*.terminal_env": "shellscript",
         "*.terminal_env_private": "shellscript",
+        "*.env": "shellscript",
+        "*.env_private": "shellscript",
         "*.dotfilesrc": "shellscript",
         "*.shell_env_global_setup": "shellscript",
         "*.shell_env_login_setup": "shellscript",
