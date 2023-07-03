@@ -22,4 +22,4 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -b
 
 
 #TODO enable SystemSettings > A11Y > Zoom > Use Keyboard Shortcuts Zoom (Cmd+Option+8)
-
+#TODO disable SystemSettings > Desktop & Dock > Mission Control # Automatically rearrange Spaces based on most recent use
