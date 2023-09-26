@@ -1,0 +1,1 @@
+defaults -currentHost read -g

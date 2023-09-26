@@ -9,5 +9,6 @@ if [ _is_macos ]; then
 fi
 
 if [ ! -z "$_vscode_binary_path" ]; then
-    sudo ln -s "$_vscode_binary_path" /usr/local/bin
+    mkdir -p /usr/local/bin
+    ln -s "$_vscode_binary_path" /usr/local/bin/code
 fi
