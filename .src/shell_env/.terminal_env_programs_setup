@@ -1,0 +1,81 @@
+###############################################################################
+#                                                                             #
+#             TERMINAL SETTINGS, APPEARENCE AND USAGE SETUP                   #
+#                                                                             #
+###############################################################################
+
+###############################################################################
+#  Source all .terminal_env and .terminal_env_private files                   #
+###############################################################################
+
+
+# ###############################################################################
+# #  Run once                                                                   #
+# ###############################################################################
+# if [ ! -z "${DOTFILES_PROGRAMS_TERMINAL_ENV:-}" ]; then
+#     return
+# fi
+# export DOTFILES_PROGRAMS_TERMINAL_ENV="$(uuidgen)"
+# ###############################################################################
+
+_shell_specific_file_extension="$_dotfiles_shell_name"
+
+_common_env_files_grep_regex='\(\.terminal_env\|\.terminal_env_private\)$'
+_all_env_files_grep_regex='\(\.terminal_env\.\?.*\|\.terminal_env_private\.\?.*\)$'
+
+_env_files_paths="$(
+	while read -r; do
+		_programs_folder_name="$REPLY"
+
+		while read -r; do
+			_program_name="$REPLY"
+			_program_path="$DOTFILES_HOME/$_programs_folder_name/$_program_name"
+
+			while read -r; do
+				_env_file_name="$REPLY"
+				if [ -z "$_env_file_name" ]; then
+					continue
+				fi
+
+				echo "$_program_path/$_env_file_name"
+
+			done <<-TERMINAL_ENV_FILES
+				$(\ls -la1 "$_program_path" | grep $_all_env_files_grep_regex)
+			TERMINAL_ENV_FILES
+
+		done <<-SINGLE_PROGRAM_FOLDERS
+			$(\ls -l1 "$DOTFILES_HOME/$_programs_folder_name")
+		SINGLE_PROGRAM_FOLDERS
+
+	done <<-PROGRAMS_FOLDERS
+		$(\ls -l1 $DOTFILES_HOME | grep '^programs')
+	PROGRAMS_FOLDERS
+)"
+
+
+while read -r; do
+	_file_path="$REPLY"
+	if printf "$_file_path" | grep $_common_env_files_grep_regex > /dev/null; then
+			# echo "=== Sourcing $_file_path"
+			. "$_file_path"
+	else
+			if [ "${_file_path%$_shell_specific_file_extension}" != "$_file_path" ]; then
+				# echo "=== Sourcing for shell $_shell_specific_file_extension: $_file_path"
+				. "$_file_path"
+				continue
+			fi
+			# config file is not for this shell
+			# echo "=== NOT Sourcing for shell $_shell_specific_file_extension: $_file_path"
+	fi
+done <<-TERMINAL_CONFIG_FILES
+	$_env_files_paths
+TERMINAL_CONFIG_FILES
+
+
+###############################################################################
+#  Shell program specific stuff                                               #
+###############################################################################
+
+if [ -r ".terminal_env_programs_setup.${_shell_specific_file_extension}" ]; then
+		. ".terminal_env_programs_setup.${_shell_specific_file_extension}"
+fi

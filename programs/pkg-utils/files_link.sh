@@ -1,0 +1,1 @@
+echo ~/bin/pkg-uninstall-script-generator

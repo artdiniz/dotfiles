@@ -1,0 +1,34 @@
+###############################################################################
+#                                                                             #
+#             USER RELATED ONLY SETTINGS, APPEARENCE AND USAGE SETUP          #
+#                                                                             #
+###############################################################################
+###############################################################################
+#                                                                             #
+#   This file will run once per login:                                        #
+#       Ubunutu -  Logs in once at the time you login to access the machine   #
+#       macOS   -  Logs in everytime you open a terminal                      #
+#                                                                             #
+###############################################################################
+
+###############################################################################
+#  Run once                                                                   #
+###############################################################################
+if [ ! -z "${DOTFILES_LOGIN_ENV:-}" ]; then
+    return
+fi
+export DOTFILES_LOGIN_ENV="$(uuidgen)"
+
+###############################################################################
+#  Dotfiles installed programs specific environment                           #
+###############################################################################
+. "$DOTFILES_HOME/.src/shell_env/.shell_env_programs_setup"
+
+###############################################################################
+#  Shell program specific stuff                                               #
+###############################################################################
+
+_shell_specific_file_extension="$_dotfiles_shell_name"
+if [ -r ".shell_env_login_setup.${_shell_specific_file_extension}" ]; then
+    . ".shell_env_login_setup.${_shell_specific_file_extension}"
+fi
