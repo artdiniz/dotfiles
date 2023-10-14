@@ -25,10 +25,6 @@ while IFS=$'\n' read -r; do
 	_log echo "==== Selected profile: $_selected_profile_name"
 
 	echo "$_settings_path/$_selected_profile_folder/Preferences.devtools.preferences.customEmulatedDeviceList.json"
-	# TODO copy and link commands - parse .json file paths and use _json_utils to get the desired json section
-	# TODO copy and link commands - make redundancy on file names like 'Preferences' above dissapear by creating the minimum necessary folder structure
-	#                               (e.g Default/Preferences.devtools.preferences.customEmulatedDeviceList.json)
-	#                               (e.g Profile 1/Preferences.devtools.preferences.customEmulatedDeviceList.json)
 done <<-SELECT_PROFILES
 	$(IFS=$'\n' _select "Select the profiles you want to copy preferences from" "$_profiles_and_names")
 SELECT_PROFILES
