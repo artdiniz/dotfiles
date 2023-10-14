@@ -15,7 +15,7 @@
     "extensions.autoUpdate": false,
     "workbench.editor.showIcons": false,
     "terminal.integrated.confirmOnExit": true,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 1.25,
     "terminal.integrated.shellIntegration.enabled": false,
     "window.commandCenter": false
 }
