@@ -1,5 +1,5 @@
 
-#TODO remove this script by making this the default behavior when backing up via files_copy.sh and files_link.sh and files_modify.sh
+#TODO remove this when backup sh reads from files_*.sh automatically
 
 _SCRIPT_PATH="$(_get_script_path)"
 
