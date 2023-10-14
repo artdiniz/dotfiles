@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-_dotfiles_script_source="$(cd "$(dirname "$BASH_SOURCE")"; pwd)"
-_dotfiles_env_run="$_dotfiles_script_source/.dotfiles_env_run.sh"
-# shellcheck source=SCRIPTDIR/.dotfiles_env_run.sh
-. $_dotfiles_env_run
+_dotfiles_src_dir="$(cd "$(dirname "$BASH_SOURCE")"; pwd)"
+. "$_dotfiles_src_dir/.dotfiles_env_source.sh"
 
 _scripts_prefix="$1"
 _program_name="$2"

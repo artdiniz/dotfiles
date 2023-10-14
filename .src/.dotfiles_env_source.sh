@@ -1,3 +1,5 @@
+# source this file on any script you want to be run with dotfiles env
+
 #!/usr/bin/env bash
 _dotfiles_env_file="$(cd "$(dirname "$BASH_SOURCE")"; pwd)/.dotfiles_env.sh"
 
