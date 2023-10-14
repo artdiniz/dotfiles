@@ -1,11 +1,22 @@
 #!/usr/bin/env bash
 
-set -ueE -o pipefail
+if [ ${_DOTFILES_STRICT_MODE:-"1"} == '1' ]; then
+	set -ueE -o pipefail
+fi
 
 if [ -z "${_trap_stack_position:-}" ]; then
 	_trap_stack_position=0
 fi
 export _trap_stack_position=$((_trap_stack_position + 1))
+
+function _throw {
+	_code=${1:-1}
+	_message="${2:-""}"
+	if [ ! -z "$_message" ]; then
+		_log printf "$(_style "[ERROR]" $_text_red $_bold) %s\n\n" "$_message"
+	fi
+	return $_code
+}
 
 function _trap_exit {
 	_exit_code=$1

@@ -11,10 +11,8 @@ elif [ -d "$_DOTFILES_DIR/programs/$_program_path" ]; then
 elif [ -d "$_DOTFILES_DIR/shell/$_program_path" ]; then
 	_program_path="$_DOTFILES_DIR/shell/$_program_path"
 else
-	printf "Unknown program $_program_path\n\n"
-	exit 1
+	_throw 1 "Unknown program $_program_path"
 fi
-
 
 _files_modify_output="$(
 	"$_program_path/files_modify.sh"

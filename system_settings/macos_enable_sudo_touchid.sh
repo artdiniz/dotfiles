@@ -20,13 +20,11 @@ function _is_sudo_touch_id_enabled {
 }
 
 if ! _has_touch_id; then
-	printf "%s\n" "Touch ID auth is not supported in this machine."
-	exit
+	_throw 1 "Touch ID auth is not supported in this machine."
 fi
 
 if _is_sudo_touch_id_enabled; then
-	printf "%s\n" "Sudo is already using Touch ID. Skipping..." 
-	exit
+	_throw 1 "Sudo is already using Touch ID. Skipping..." 
 fi
 
 if _confirm "Detected Touch ID auth support. Do you want to enable Touch ID when running sudo?" "n"; then

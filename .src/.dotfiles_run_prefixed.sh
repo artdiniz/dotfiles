@@ -15,16 +15,14 @@ elif [ -d "$_DOTFILES_DIR/programs/$_program_path" ]; then
 elif [ -d "$_DOTFILES_DIR/shell/$_program_path" ]; then
     _program_path="$_DOTFILES_DIR/shell/$_program_path"
 else
-    printf "Unknown program $_program_path\n\n"
-    exit 1
+    _throw 1 "Unknown program $_program_path"
 fi
 
 
 _program_relative_path="${_program_path##$_DOTFILES_DIR/}"
 
 if [ "$_program_relative_path" == "$_program_path" ]; then
-	printf "Not a dotfiles program: $_program_path\n\n"
-    exit 1
+    _throw 1 "Not a dotfiles program: $_program_path"
 fi
 
 _prefixed_scripts="$(
