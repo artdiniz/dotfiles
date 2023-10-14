@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# This file is used as BASH_ENV on all/most of dotfiles commands
-#     this means that this script is executed on each child script call
-#     this behavior is important for stack tracing in _setup_error_handling.sh and will probably be useful in other places too
-
 export _DOTFILES_HAS_ENV=1
 _DOTFILES_DIR="$(
     test -z "$_DOTFILES_DIR" && printf "$HOME/dotfiles" || printf "$_DOTFILES_DIR"
