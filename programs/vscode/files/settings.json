@@ -1,5 +1,6 @@
 {
     "git.confirmSync": false,
+    "workbench.colorTheme": "Default Light+",
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromCodeNavigation": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -8,6 +9,7 @@
     },
     "editor.accessibilitySupport": "off",
     "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "all",
     "explorer.confirmDragAndDrop": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "typescript.updateImportsOnFileMove.enabled": "always",

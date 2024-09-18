@@ -13,5 +13,6 @@
         "*.terminal_env_programs_setup": "shellscript",
         "*.shell_env_programs_setup": "shellscript",
         "*.js.sh": "javascript"
-    }
+    },
+    "terminal.integrated.shellIntegration.enabled": false
 }
