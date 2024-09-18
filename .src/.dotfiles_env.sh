@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 
 export _DOTFILES_HAS_ENV=1
-_DOTFILES_DIR="$(
-    test -z "$_DOTFILES_DIR" && printf "$HOME/dotfiles" || printf "$_DOTFILES_DIR"
-)"
+_DOTFILES_DIR="$(test ! -z "$_DOTFILES_DIR" && printf "$_DOTFILES_DIR" || CDPATH= cd -- "$(dirname -- "$DOTFILES_ENV_FILE")/.." && pwd)"
 _DOTFILES_PRIVATE_ENV_FILE=".shell_env_private"
-_SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
-# echo "=== BASH ENV RUN BASH_SOURCE[${BASH_SOURCE[@]}] \$0[$0] \$@[$@]"
 
+# echo "=== BASH ENV RUN BASH_SOURCE[${BASH_SOURCE[@]}] \$0[$0] \$@[$@]"
 
 # shellcheck source=SCRIPTDIR/lib/view/error_handling/_setup_error_handling.sh
 . "$_DOTFILES_DIR"/.src/lib/error_handling/_setup_error_handling.sh
