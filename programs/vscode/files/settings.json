@@ -19,5 +19,7 @@
     "terminal.integrated.confirmOnExit": true,
     "window.zoomLevel": 1.25,
     "terminal.integrated.shellIntegration.enabled": false,
-    "window.commandCenter": false
+    "window.commandCenter": false,
+    "dev.containers.dockerSocketPath": "tcp://umbrel.local:42375",
+    "svg.preview.mode": "svg"
 }

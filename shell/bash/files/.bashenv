@@ -9,7 +9,7 @@
 
 # https://www.gnu.org/software/bash/manual/bash.html#Bash-Startup-Files
 
-_dotfiles_path="$HOME/dotfiles"
+_dotfiles_path="$HOME/.dotfiles/src"
 _dotfiles_shell_env_scripts_path="$_dotfiles_path/.src/shell_env"
 _dotfiles_shell_name="bash"
 

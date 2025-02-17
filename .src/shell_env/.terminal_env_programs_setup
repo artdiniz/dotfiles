@@ -29,7 +29,7 @@ _env_files_paths="$(
 
 		while read -r; do
 			_program_name="$REPLY"
-			_program_path="$DOTFILES_HOME/$_programs_folder_name/$_program_name"
+			_program_path="$DOTFILES_HOME/src/$_programs_folder_name/$_program_name"
 
 			while read -r; do
 				_env_file_name="$REPLY"
@@ -44,11 +44,11 @@ _env_files_paths="$(
 			TERMINAL_ENV_FILES
 
 		done <<-SINGLE_PROGRAM_FOLDERS
-			$(\ls -l1 "$DOTFILES_HOME/$_programs_folder_name")
+			$(\ls -l1 "$DOTFILES_HOME/src/$_programs_folder_name")
 		SINGLE_PROGRAM_FOLDERS
 
 	done <<-PROGRAMS_FOLDERS
-		$(\ls -l1 $DOTFILES_HOME | grep '^programs')
+		$(\ls -l1 $DOTFILES_HOME/src | grep '^programs')
 	PROGRAMS_FOLDERS
 )"
 

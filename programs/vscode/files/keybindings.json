@@ -84,5 +84,11 @@
     {
         "key": "shift+cmd+h",
         "command": "-workbench.action.replaceInFiles"
+    },
+    {
+        "key": "ctrl+k tab",
+        "command": "type",
+        "args": { "text": "\t" },
+        "when": "editorTextFocus"
     }
 ]

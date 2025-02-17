@@ -1,7 +1,7 @@
-mkdir -p "$HOME/bin"
+mkdir -p "$HOME/.dotfiles/bin"
 
-rm -rf "$HOME/dotfiles"
-ln -s "$_DOTFILES_DIR" "$HOME/dotfiles"
+rm -rf "$HOME/.dotfiles/src"
+ln -s "$_DOTFILES_DIR" "$HOME/.dotfiles/src"
 
 # TODO backup bash and zsh
 # TODO add backup bash and xsh files execution to shell env

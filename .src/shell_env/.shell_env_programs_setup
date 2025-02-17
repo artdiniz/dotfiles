@@ -11,7 +11,6 @@
 # export DOTFILES_PROGRAMS_SHELL_ENV="$(uuidgen)"
 # ###############################################################################
 
-
 _shell_specific_file_extension="$_dotfiles_shell_name"
 
 _common_env_files_grep_regex='\(\.shell_env\|\.shell_env_private\)$'
@@ -23,14 +22,14 @@ _env_files_paths="$(
 
 		while read -r; do
 			_program_name="$REPLY"
-			_program_path="$DOTFILES_HOME/$_programs_folder_name/$_program_name"
+			_program_path="$DOTFILES_HOME/src/$_programs_folder_name/$_program_name"
 
 			while read -r; do
 				_env_file_name="$REPLY"
 				if [ -z "$_env_file_name" ]; then
 					continue
 				fi
-
+				
 				echo "$_program_path/$_env_file_name"
 
 			done <<-TERMINAL_ENV_FILES
@@ -38,11 +37,11 @@ _env_files_paths="$(
 			TERMINAL_ENV_FILES
 
 		done <<-SINGLE_PROGRAM_FOLDERS
-			$(ls -l1 "$DOTFILES_HOME/$_programs_folder_name")
+			$(ls -la1 "$DOTFILES_HOME/src/$_programs_folder_name")
 		SINGLE_PROGRAM_FOLDERS
 
 	done <<-PROGRAMS_FOLDERS
-		$(ls -l1 $DOTFILES_HOME | grep '^programs')
+		$(ls -la1 $DOTFILES_HOME/src | grep '^programs')
 	PROGRAMS_FOLDERS
 )"
 
@@ -50,11 +49,11 @@ _env_files_paths="$(
 while read -r; do
 	_file_path="$REPLY"
 	if printf "$_file_path" | grep $_common_env_files_grep_regex > /dev/null; then
-			# echo "=== Sourcing $_file_path"
+			printf "[sourced|program] %s\n" "$_file_path" >> "$DOTFILES_HOME/session.log"
 			. "$_file_path"
 	else
 			if [ "${_file_path%$_shell_specific_file_extension}" != "$_file_path" ]; then
-				# echo "=== Sourcing for shell $_shell_specific_file_extension: $_file_path"
+				printf "[sourced|program|%s] %s\n" "$_shell_specific_file_extension" "$_file_path" >> "$DOTFILES_HOME/session.log"
 				. "$_file_path"
 				continue
 			fi

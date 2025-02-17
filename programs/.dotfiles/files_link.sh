@@ -1,1 +1,1 @@
-echo "$HOME/bin/dotfiles"
+echo "$HOME/.dotfiles/bin/dotfiles"
