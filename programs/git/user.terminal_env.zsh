@@ -1,0 +1,1 @@
+chpwd_functions+=(usegitconfiguser)

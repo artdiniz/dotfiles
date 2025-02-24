@@ -1,0 +1,1 @@
+echo "$HOME/.docker/config.json" 

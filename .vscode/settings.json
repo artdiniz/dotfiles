@@ -5,6 +5,14 @@
         "*.shell_env_private": "shellscript",
         "*.terminal_env": "shellscript",
         "*.terminal_env_private": "shellscript",
+        "*.shell_env.*": "shellscript",
+        "*.shell_env_private.*": "shellscript",
+        "*.terminal_env.*": "shellscript",
+        "*.terminal_env_private.*": "shellscript",
+        "*.shell_env@*": "shellscript",
+        "*.shell_env_private@*": "shellscript",
+        "*.terminal_env@*": "shellscript",
+        "*.terminal_env_private@*": "shellscript",
         "*.env": "shellscript",
         "*.env_private": "shellscript",
         "*.dotfilesrc": "shellscript",
@@ -14,5 +22,11 @@
         "*.shell_env_programs_setup": "shellscript",
         "*.js.sh": "javascript"
     },
-    "terminal.integrated.shellIntegration.enabled": false
+    "terminal.integrated.shellIntegration.enabled": false,
+    "shellcheck.ignorePatterns": {
+        "programs/**": true,
+        ".src/shell_env/**": true,
+        "envs/**": true
+    },
+    "shellcheck.useWorkspaceRootAsCwd": true
 }

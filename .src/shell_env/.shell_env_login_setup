@@ -23,6 +23,10 @@ export DOTFILES_LOGIN_ENV="$(uuidgen)"
 #  Dotfiles installed programs specific environment                           #
 ###############################################################################
 . "$DOTFILES_HOME/src/.src/shell_env/.shell_env_programs_setup"
+###############################################################################
+#  Dotfiles user environments specific environment                           #
+###############################################################################
+. "$DOTFILES_HOME/src/.src/shell_env/.shell_env_environments_setup"
 
 ###############################################################################
 #  Shell program specific stuff                                               #

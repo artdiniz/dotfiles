@@ -19,9 +19,4 @@ usegitconfiguser() {
   fi
 }
 
-cd() {
-  builtin cd "$@"
-  usegitconfiguser
-}
-
 usegitconfiguser

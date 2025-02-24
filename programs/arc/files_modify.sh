@@ -22,5 +22,5 @@ IFS=$'\n' _select "Select the profiles you want to copy preferences from" "$_pro
 	
 	_log echo "==== Selected profile: $_selected_profile_name"
 
-	echo "$_settings_path/$_selected_profile_folder/Preferences.devtools.preferences.custom-emulated-device-list"
+	echo "$_settings_path/$_selected_profile_folder/Preferences"
 done
